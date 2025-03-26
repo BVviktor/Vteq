@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function updateSelectedLanguage(lang) {
     const selected = document.querySelector(".selected-language");
-    const flagSrc = `/images/${lang}.png`; // Set correct flag path
+    const flagSrc = `../images/${lang}.png`; // Set correct flag path
     selected.innerHTML = `<img src="${flagSrc}" class="lang-flag"> ${lang} <i class="fas fa-caret-down"></i>`;
 }
 
   // Function to load language content
   function loadLanguage(lang) {
-    fetch(`/languages/${lang}.json`) // Fetch translation file
+    fetch(`../languages/${lang}.json`) // Fetch translation file
         .then(response => {
             if (!response.ok) throw new Error(`Language file not found: ${lang}.json`);
             return response.json();
