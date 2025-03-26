@@ -450,7 +450,7 @@ footer.show {
 /* CONTACT ME PAGE */
 
 .hero1 {
-    background: url('../images/contact_backgrnd.jpg') no-repeat center center/cover;
+    background: url('images/contact_backgrnd.jpg') no-repeat center center/cover;
     min-height: 130vh;
     width: 100%;
     height: 100%;
