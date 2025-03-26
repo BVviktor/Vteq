@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+    <title>Vteq</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/icon.ico"> <!-- Favicon for the page -->
+</head>
+<body>
+    <div class="hero1">
+        <nav class="navbar">
+            <img src="/images/menu.png" class="menu-img">
+            <a href="/home/index.html">
+                <img src="/images/logo.png" class="logo" alt="Logo">
+            </a>
+            <ul>
+                <li><a href="/home/index.html" data-translate="home"> <img src="/images/home.png" class="home"> Home</a></li>
+                <li><a href="/news/index.html" data-translate="news">Tech News</a></li>
+                <li><a href="/about/index.html" data-translate="about">About Me</a></li>
+                <li><a href="/contact/index.html" data-translate="contact">Contact Me</a></li>
+            </ul>
+            <div class="language-selector">
+                <div class="selected-language">
+                    <img src="/images/en.png" class="lang-flag"> en 
+                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+                </div>
+                <ul class="language-dropdown">
+                    <li data-lang="en"><img src="/images/en.png" class="lang-flag"> en</li>
+                    <li data-lang="hu"><img src="/images/hu.png" class="lang-flag"> hu</li>
+                    <!-- <li data-lang="ru"><img src="/images/ru.png" class="lang-flag"> ru</li> -->
+                </ul>
+            </div>
+        </nav>
+        <hr class="styled-line">
+
+        
+
+        <div class="text-container1">
+            <h2 data-translate="contact-me1">Contact Me</h2>
+            <form action="https://formspree.io/f/xwplpnjy" method="POST" enctype="multipart/form-data">
+                <label for="first-name" data-translate="firstN">First Name:</label>
+                <input type="text" id="first-name" name="first_name" required>
+
+                <label for="last-name" data-translate="lastN">Last Name:</label>
+                <input type="text" id="last-name" name="last_name" required>
+
+                <label for="email" data-translate="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="category" data-translate="category">Category:</label>
+                <select id="category" name="category" data-translate="categories">
+                    <option value="web-development">Website Development and Design</option>
+                    <option value="app-development">Application Development and Design</option>
+                    <option value="embedded-systems">Embedded Systems Development</option>
+                    <option value="database-management">Database Management & Data Processing</option>
+                    <option value="automation-scripting">Automation & Scripting (Python, Node-RED)</option>
+                    <option value="software-development">Custom Software Development (C#, WPF, XML)</option>
+                    <option value="technical-writing">Technical Writing & Documentation</option>
+                    <option value="cv-writing">Professional CV Writing</option>
+                    <option value="instruction">Instructor Work (Engineering/Math/Physics/Informatics)</option>
+                    <option value="consultation">Consultation</option>
+                </select>
+
+                <!-- <label for="file">Attach a File:</label>
+                <input type="file" id="file" name="file"> not supported in free version! -->
+
+                <label for="subject" data-translate="subject" >Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message" data-translate="message">Message:</label>
+                <textarea id="message" name="message" rows="6" maxlength="5000" required data-translate="placeholder"
+                placeholder="Please describe your project or inquiry in detail (up to 5000 characters). Feel free to include relevant examples, requirements, or any questions you might have."></textarea>
+
+                <label required data-translate="privacy" class="consentLabel" for="consent"><input class="consent" type="checkbox" id="consent"> I agree to the <a href="/etc/privpolicy.html" target="_blank">
+                    privacy policy
+                </a></label>
+
+                <div class="button-container">
+                    <button type="reset" data-translate="reset">Reset</button>
+                    <button type="submit" data-translate="submit">Create Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="/script.js"></script>
+</body>
+
+<footer>
+    <div class="footer-content">
+        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
+        <div class="footer-links">
+            <a href="https://github.com/BVviktor" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:bakacsviktor123@email.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+</html>

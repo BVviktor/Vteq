@@ -1,0 +1,656 @@
+/* Add styles here */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero {
+    background: #021526;
+    min-height: 145vh;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    position: relative;
+}
+
+.home {
+    width: 20px;
+    height: 16px;
+}
+
+/* Make the navbar always on top */
+.navbar {
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Align to the top of the screen */
+    left: 0; /* Align to the left of the screen */
+    right: 0; /* Ensure the navbar stretches across the full width */
+    z-index: 1000; /* Make sure the navbar stays above other content */
+    background-color: #141414; /* Add background color */
+    padding: 10px 8%; /* Adjust padding as needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a slight shadow for separation */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 20px 8%;
+    flex-wrap: wrap; /* Allows items to wrap for smaller screens */
+}
+
+nav .menu-img {
+    width: 40px;
+    height: 30px;
+    margin-right: 6px;
+    /*cursor: pointer;*/
+}
+
+nav .logo {
+    width: 140px;
+    height: 50px;
+    cursor: pointer;
+    margin-right: auto; /* Keeps logo on the left */
+}
+
+nav ul {
+    flex: 1;
+    text-align: right;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px; /* Adds padding for touch devices */
+    transition: 0.5s;
+}
+
+nav ul li a:hover {
+    color: #6EACDA;
+    transition: 0.5s;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For mobile screens (less than 768px) */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 5%; /* Decrease the padding for mobile */
+        flex-direction: column; /* Stack the navigation items vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+    }
+
+    nav .logo {
+        width: 120px; /* Smaller logo for mobile */
+    }
+
+    nav ul {
+        width: 100%; /* Make the ul take the full width */
+        text-align: left; /* Align text to the left */
+    }
+
+    nav ul li {
+        margin: 0px 0; /* Add some space between menu items */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Smaller font for mobile */
+        padding: 8px; /* More padding for easier touch interactions */
+    }
+}
+
+/* For very small screens (less than 480px) */
+@media (max-width: 480px) {
+    nav .menu-img {
+        width: 30px; /* Make the menu icon smaller */
+        height: 24px;
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Even smaller font for very small screens */
+    }
+}
+
+.language-selector {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.language-selector:hover {
+    color: #6EACDA;
+    transition: 0.5s;
+}
+
+.language-selector .fa-caret-down {
+    transition: transform 0.3s ease-in-out;
+}
+
+.language-selector.active .fa-caret-down {
+    transform: rotate(-180deg);
+}
+
+.selected-language {
+    background-color: #141414;
+    /*border: 1px solid #ccc;*/
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selected-language img {
+    width: 20px;
+    height: 14px;
+    margin-right: 8px;
+}
+
+.selected-language i {
+    color: whitesmoke;
+    margin-left: 8px; /* Add margin to the left of the arrow for spacing */
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #141414;
+    border: 0.5px solid #ccc;
+    border-radius: 3px;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.language-dropdown li {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center both flag and text */
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 14px;
+    text-align: center; /* Centers the text inside the li */
+}
+
+.language-dropdown li img {
+    width: 20px;
+    height: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.language-dropdown li:hover {
+    background: #03346E;
+    color: #fff;
+}
+
+.language-dropdown li:hover img {
+    filter: brightness(1.2);
+}
+
+.styled-line1 {
+    border: none; /* Removes the default border */
+    height: 1px;  /* Height of the line */
+    background-color: whitesmoke; /* Color of the line */
+    width: 100%; /* Width of the line */
+    margin: 0px auto; /* Spacing around the line */
+}
+
+button {
+    background: #efefef;
+    height: 30px;
+    width: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.5s;
+    animation: fadeIn 0.8s ease-in-out;
+}
+button span {
+    display: block;
+    width: 26px;
+    height: 26px;
+    background: #999;
+    border-radius: 50%;
+    margin-left: 2px;
+    transition: background 0.5s, margin-left 0.5s;
+}
+
+.laptop {
+    position: absolute;
+    margin-top: 12%;
+    left: 10%;
+    width: 500px;
+    height: 250px;
+    border: #141414 2px solid;
+    border-radius: 15px; /* Add rounded corners for a smoother look */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Add shadow to make the image pop */
+    transform: rotate(-3deg); /* Slight rotation to give it a playful, dynamic look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions on hover */
+    max-width: 20%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.laptop:hover {
+    transform: rotate(0deg); /* Remove rotation on hover for a smooth effect */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+    transform: scale(1.05); /* Slight zoom effect to emphasize hover */
+    
+}
+
+.laptop1 {
+    border-radius: 15px; /* Apply same rounded corners to the image inside */
+    width: 500px;
+    height: 250px;
+    max-width: 180%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+
+.text-container {
+    max-width: 600px;
+    margin-top: 10%;
+    margin-left: 50%;
+    position: static;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.text-container h1 {
+    font-size: 45px;
+    font-weight: 400;
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transition for smooth scale and glow effect */
+    margin-bottom: 5px;
+}
+
+.text-container h1:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.7), 0 0 20px rgba(0, 174, 255, 0.7); /* Glowing effect */
+}
+.text-container h2 {
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transition for smooth scale and glow effect */
+}
+
+.text-container h2:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.7), 0 0 20px rgba(0, 174, 255, 0.7); /* Glowing effect */
+}
+
+.text-container p {
+    font-size: 16px;
+    margin-top: 5px;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Transition for smooth scale, color, and glow effect */
+}
+
+.text-container p:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    color: #00AEFF; /* Change text color to a vibrant blue */
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.7), 0 0 20px rgba(0, 174, 255, 0.7); /* Glowing effect */
+}
+
+.text-container a {
+    text-decoration: none;
+    background: #03346E;
+    padding: 14px 40px;
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 30px; 
+    transition: 0.5s;
+}
+
+.text-container a:hover { 
+    background: #04438f;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.text-container .contact {
+    all: unset;
+    color: #6EACDA;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer {
+    position: fixed;
+    bottom: -100px; /* Initially hide the footer below the screen */
+    left: 0;
+    width: 100%;
+    background-color: #141414;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    transition: bottom 0.5s ease-in-out; /* Smooth transition when the footer appears */
+}
+
+footer.show {
+    bottom: 0; /* Show the footer when the class 'show' is added */
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #6EACDA;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.services {
+    list-style: none;
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transition for smooth scale and glow effect */
+    font-size: 22px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.services li{
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transition for smooth scale and glow effect */
+}
+
+.services li:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.7), 0 0 20px rgba(0, 174, 255, 0.7); /* Glowing effect */
+}
+
+.text-container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #021526;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.left-content {
+    flex: 1;
+    padding: 20px;
+    margin-top: 0%;
+    margin-left: 12%;
+    max-width: 50%;
+    background: #021526;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.left-content h2 {
+    font-size: 32px;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.left-content h2:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    text-shadow: 0 0 10px rgba(0, 174, 255, 0.7), 0 0 20px rgba(0, 174, 255, 0.7); /* Glowing effect */
+}
+
+.right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    background: #021526;
+    margin-top: -5%;
+}
+
+.laptop-guy {
+    position: absolute;
+    margin-top: -12%;
+    margin-right: 5%;
+    right: 10%;
+    width: 500px;
+    height: 300px;
+    border: #141414 2px solid;
+    border-radius: 15px; /* Add rounded corners for a smoother look */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Add shadow to make the image pop */
+    transform: rotate(3deg); /* Slight rotation to give it a playful, dynamic look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions on hover */
+    max-width: 32%;
+    max-block-size: 50%;
+    background: #021526;
+    animation: fadeIn 0.8s ease-in-out;
+}
+.laptop-guy:hover {
+    transform: rotate(0deg); /* Remove rotation on hover for a smooth effect */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+    transform: scale(1.05); /* Slight zoom effect to emphasize hover */
+}
+
+
+/* CONTACT ME PAGE */
+
+.hero1 {
+    background: url('/images/contact_backgrnd.jpg') no-repeat center center/cover;
+    min-height: 130vh;
+    width: 100%;
+    height: 100%;
+    color: #fff; /* it was white*/
+    position: relative;
+}
+
+.text-container1 {
+    max-width: 600px;
+    margin: 8% auto 4% auto;
+    padding: 20px;
+    background: #141414;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* For mobile screens (less than 768px) */
+@media (max-width: 768px) {
+    .text-container1 {
+        margin: 50% auto 20% auto;
+    }
+}
+
+
+.text-container1 h2 {
+    margin-top: 2%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+label {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.consentLabel{
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.consentLabel a{
+    color: #6EACDA;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+input, select, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    background: #03346E;
+    color: white;
+    padding: 22px 30px; /* Enough padding to cover the text and make the button bigger */
+    font-size: 18px; /* Increase text size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex; /* Make sure the background is applied correctly */
+    align-items: center; /* Vertically center the text inside the button */
+    justify-content: center; /* Horizontally center the text */
+    min-width: 150px; /* Make sure the button has a minimum width */
+    text-align: center; /* Ensure the text is centered */
+}
+
+button:hover {
+    background: #0256a3;
+}
+
+/* PORTFOLIO PAGE */
+.hero2 {
+    background: url('/images/contact_backgrnd.jpg') no-repeat center center/cover;
+    min-height: 130vh;
+    width: 100%;
+    height: 100%;
+    color: #fff; /* it was white*/
+    position: relative;
+}
+
+
+.portfolio-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    max-width: 900px;
+    background: #141414;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    margin: 12% auto;
+    border: white 2px solid;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.left-text {
+    flex: 1;
+    padding: 20px;
+    align-self: flex-start; /* remove this to align text in center */
+}
+
+.right-content1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-content1 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.right-content1 iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Navigation Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    border: white 2px solid;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    background: #141414;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.left-arrow {
+    left: 3%;
+}
+
+.right-arrow {
+    right: 3%;
+}
+
+@media (max-width: 768px) {
+    .portfolio-box {
+        flex-direction: column;
+        text-align: center;
+        margin: 38% auto;
+    }
+    .portfolio-box h2{
+        text-align: center;
+    }
+    .portfolio-box p{
+        text-align: left;
+    }
+    .arrow {
+        top: 85%;
+        transform: translateY(0);
+    }
+
+}

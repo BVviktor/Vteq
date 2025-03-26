@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+    <title>Vteq</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/icon.ico"> <!-- Favicon for the page -->
+    <style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            .laptop {
+                position: absolute;
+                margin-top: 170%;
+                left: 4%;
+                width: 500px;
+                height: 250px;
+                max-width: 50%;
+            }
+                .laptop1 {
+                width: 500px;
+                height: 250px;
+                max-width: 180%;
+            }
+
+            .text-container {
+                max-width: 90%;
+                margin-top: 43%;
+                margin-left: 2%;
+                position: static;
+                padding: 20px;
+            }
+
+            .left-content {
+                flex: 1;
+                padding: 20px;
+                margin-top: 80%;
+                margin-left: 2%;
+                max-width: 90%;
+            }
+
+            .container, .text-container2 {
+            flex-direction: column;
+            }
+            .left-content, .right-content, .text-container, .laptop1 {
+                order: -1;
+                padding: 10px;
+            }
+            .right-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .services {
+                order: -1;
+            }
+
+            .laptop-guy {
+            position: absolute;
+            margin: 80% -5% 0% 0%;
+            width: 500px;
+            height: 250px;
+            max-width: 90%;
+            max-block-size: 90%;
+            }
+
+            .hero {
+                min-height: 230vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav class="navbar">
+            <img src="/images/menu.png" class="menu-img">
+            <a href="/home/index.html">
+                <img src="/images/logo.png" class="logo" alt="Logo">
+            </a>
+            <ul>
+                <li><a href="/home/index.html" data-translate="home"> <img src="/images/home.png" class="home"> Home</a></li>
+                <li><a href="/news/index.html" data-translate="news">Tech News</a></li>
+                <li><a href="/about/index.html" data-translate="about">About Me</a></li>
+                <li><a href="/contact/index.html" data-translate="contact">Contact Me</a></li>
+            </ul>
+            <div class="language-selector">
+                <div class="selected-language">
+                    <img src="/images/en.png" class="lang-flag"> en 
+                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+                </div>
+                <ul class="language-dropdown">
+                    <li data-lang="en"><img src="/images/en.png" class="lang-flag"> en</li>
+                    <li data-lang="hu"><img src="/images/hu.png" class="lang-flag"> hu</li>
+                    <!-- <li data-lang="ru"><img src="/images/ru.png" class="lang-flag"> ru</li> -->
+                </ul>
+            </div>
+        </nav>
+        <hr class="styled-line">
+
+        
+        <div class="laptop">
+            <img src="/images/laptop.png" class="laptop1">
+        </div>
+        <div class="text-container">
+            <h1 data-translate="freelance">Freelance Software Engineering Services</h1>
+            <hr class="styled-line1">
+            <p data-translate="short-descr">As a software engineer with a passion for innovation, I create modern, high-performance websites tailored to your needs. With experience in embedded systems and engineering, I also offer solutions for technical projects. Additionally, I provide instructional services to help individuals or teams build their technical skills. Feel free to <a data-translate="reach" class="contact" href="/contact/index.html">reach out</a> for a consultation!</p>
+            <a href="/contact/index.html" data-translate="contact-btn">Contact Me!</a>
+        </div>
+        
+        <div class="text-container2">
+            <div class="left-content">
+                <h2 data-translate="services-h2">What I Can Do for You</h2>
+                <ul class="services" data-translate="services-ul">
+                    <li>✔️ Custom Website Design & Development</li>
+                    <li>✔️ Frontend & Backend Programming</li>
+                    <li>✔️ Embedded Systems Development</li>
+                    <li>✔️ UI/UX Design</li>
+                    <li>✔️ Technical Consultation & Instruction</li>
+                    <li>✔️ Python/C# Programming using different IDEs</li>
+                    <li>✔️ Technical Writing & Documentation</li>
+                    <li>✔️ Professional CV Writing</li>
+                    <li>✔️ Consultation</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-content">
+            <img src="/images/laptop-guy.png" alt="laptop-guy" class="laptop-guy">
+        </div>
+    </div>
+
+    
+    <script src="/script.js"></script>
+</body>
+
+<footer>
+    <div class="footer-content">
+        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
+        <div class="footer-links">
+            <a href="https://github.com/BVviktor" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:bakacsviktor123@email.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+</html>
