@@ -3,7 +3,7 @@
     "freelance": "Freelance Software Engineering Services",
     "short-descr": "As a software engineer with a passion for innovation, I create modern, high-performance websites tailored to your needs. With experience in embedded systems and engineering, I also offer solutions for technical projects. Additionally, I provide instructional services to help individuals or teams build their technical skills. Feel free to <a data-translate=\"reach\" class=\"contact\" href=\"/contact/index.html\">reach out</a> for a consultation!",
     "reach": "reach out",
-	"home": "<img src=\"/images/home.png\" class=\"home\"> Home",
+	"home": "<img src=\"../images/home.png\" class=\"home\"> Home",
 	"news": "Tech News",
 	"about": "About Me",
 	"contact": "Contact Me",
