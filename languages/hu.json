@@ -1,7 +1,7 @@
 {
 	"_PAGE1": "HOME",
     "freelance": "Szoftverfejlesztői Szolgáltatások",
-    "short-descr": "Szoftverfejlesztőként modern, gyors és hatékony weboldalakat készítek, teljesen az Ön igényeire szabva. Különböző mérnöki területeken is van tapasztalatom, így összetettebb műszaki projektekben is segíthetek Önnek. Emellett oktatással is foglalkozom, hogy magánszemélyeknek és cégeknek is segítsek a műszaki problémák megoldásában. Szakterületeim közé tartozik a webfejlesztés, alkalmazásprogramozás és rendszerintegráció. Munkáim során mindig a legújabb technológiákat alkalmazom, hogy biztosítsam a legjobb eredményeket. Ha szeretne velem dolgozni, <a data-translate=\"reach\" class=\"contact\" href=\"/contact/index.html\">keressen</a> bizalommal!",
+    "short-descr": "Szoftverfejlesztőként modern, gyors és hatékony weboldalakat készítek, teljesen az Ön igényeire szabva. Különböző mérnöki területeken is van tapasztalatom, így összetettebb műszaki projektekben is segíthetek Önnek. Emellett oktatással is foglalkozom, hogy magánszemélyeknek és cégeknek is segítsek a műszaki problémák megoldásában. Szakterületeim közé tartozik a webfejlesztés, alkalmazásprogramozás és rendszerintegráció. Munkáim során mindig a legújabb technológiákat alkalmazom, hogy biztosítsam a legjobb eredményeket. Ha szeretne velem dolgozni, <a data-translate=\"reach\" class=\"contact\" href=\"../contact/index.html\">keressen</a> bizalommal!",
     "reach": "vegye fel a kapcsolatot",
 	"home": "<img src=\"../images/home.png\" class=\"home\"> Kezdőlap",
 	"news": "Tech Hírek",
@@ -35,7 +35,7 @@
 	"categories": "<option value=\"web-development\">Weboldal tervezés és fejlesztés</option> <option value=\"app-development\">Alkalmazás tervezés és fejlesztés</option> <option value=\"embedded-systems\">Beágyazott rendszerek fejlesztése</option> <option value=\"database-management\">Adatbázis kezelés és adat feldolgozás</option> <option value=\"automation-scripting\">Automatizáció és script írás (Python, Node-RED)</option> <option value=\"software-development\">Egyéni szoftver fejlesztés (C#, WPF, XML)</option> <option value=\"technical-writing\">Műszaki dokumentációk készítése</option> <option value=\"cv-writing\">Professzionális önéletrajz készítés</option> <option value=\"instruction\">Oktatói tevékenység (Mérnöki/Matek/Fizika/Informatika)</option> <option value=\"consultation\">Konzultáció</option>",
 	"subject": "Tárgy: ",
 	"message": "Üzenet: ",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> Elfogadom az <a href=\"/etc/privpolicy.html\" target=\"_blank\">adatkezelési tájékoztatóban</a> leírtakat.",
+	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> Elfogadom az <a href=\"../etc/privpolicy.html\" target=\"_blank\">adatkezelési tájékoztatóban</a> leírtakat.",
 	"reset" :"Mégse",
 	"submit": "Küldés",
 	"placeholder": "Kérjük, részletesen írja le projektjét vagy kérését (legfeljebb 5000 karakter). Nyugodtan csatoljon releváns példákat, követelményeket vagy bármilyen kérdést."

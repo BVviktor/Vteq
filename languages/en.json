@@ -1,7 +1,7 @@
 {
 	"_PAGE1": "HOME",
     "freelance": "Freelance Software Engineering Services",
-    "short-descr": "As a software engineer with a passion for innovation, I create modern, high-performance websites tailored to your needs. With experience in embedded systems and engineering, I also offer solutions for technical projects. Additionally, I provide instructional services to help individuals or teams build their technical skills. Feel free to <a data-translate=\"reach\" class=\"contact\" href=\"/contact/index.html\">reach out</a> for a consultation!",
+    "short-descr": "As a software engineer with a passion for innovation, I create modern, high-performance websites tailored to your needs. With experience in embedded systems and engineering, I also offer solutions for technical projects. Additionally, I provide instructional services to help individuals or teams build their technical skills. Feel free to <a data-translate=\"reach\" class=\"contact\" href=\"../contact/index.html\">reach out</a> for a consultation!",
     "reach": "reach out",
 	"home": "<img src=\"../images/home.png\" class=\"home\"> Home",
 	"news": "Tech News",
@@ -35,7 +35,7 @@
 	"categories": "<option value=\"web-development\">Website Development and Design</option> <option value=\"app-development\">Application Development and Design</option> <option value=\"embedded-systems\">Embedded Systems Development</option> <option value=\"database-management\">Database Management & Data Processing</option> <option value=\"automation-scripting\">Automation & Scripting (Python, Node-RED)</option> <option value=\"software-development\">Custom Software Development (C#, WPF, XML)</option> <option value=\"technical-writing\">Technical Writing & Documentation</option> <option value=\"cv-writing\">Professional CV Writing</option> <option value=\"instruction\">Instructor Work (Engineering/Math/Physics/Informatics)</option> <option value=\"consultation\">Consultation</option>",
 	"subject": "Subject: ",
 	"message": "Message: ",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> I agree to the <a href=\"/etc/privpolicy.html\" target=\"_blank\">privacy policy</a>",
+	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> I agree to the <a href=\"../etc/privpolicy.html\" target=\"_blank\">privacy policy</a>",
 	"reset" :"Reset",
 	"submit": "Create Request",
 	"placeholder": "Please describe your project or inquiry in detail (up to 5000 characters). Feel free to include relevant examples, requirements, or any questions you might have."
