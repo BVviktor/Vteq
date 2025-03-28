@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("selectedLanguage", lang); // Store language in localStorage
     const url = new URL(window.location.href);
     url.searchParams.set("lang", lang); // Add or update the ?lang= parameter
+    document.documentElement.lang = lang;
     window.history.replaceState(null, "", url); // Update URL without reloading
 
     updateSelectedLanguage(lang); // ✅ Now updates flag & text

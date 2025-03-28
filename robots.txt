@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /test-page.html
+Allow: /
+
+Sitemap: https://vteq-it.com/sitemap.xml
