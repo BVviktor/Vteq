@@ -22,9 +22,9 @@
             position: relative;
         }
         .news-container {
-            width: 60%;
+            width: 80%;
             margin: 6% auto 5% auto;
-            max-width: 900px;
+            max-width: 1000px;
             background: #141414;
             padding: 20px;
             border-radius: 10px;
@@ -99,64 +99,6 @@
             font-size: 20px;
             background: #0056b3;
             border: none;
-        }
-
-         /* Ads */
-         .ad {
-            position: fixed;
-            background: grey;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            text-align: center;
-            border: white 1px solid; /* just to see corners, DELETE this later */
-        }
-
-        .top-left {
-            margin: 6% 0% 0% 2%;
-            position: fixed;
-            background: grey;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            text-align: center;
-            width: 15%; /* Set a width */
-            height: 75%; /* Set a height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .top-right {
-            margin: 6% 0% 0% 83%;
-            position: fixed;
-            background: grey;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            text-align: center;
-            width: 15%; /* Set a width */
-            height: 75%; /* Set a height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bottom-ad {
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%; /* Set a width */
-            height: 15%; /* Set a height */
-            bottom: 12%;
-        }
-
-        .close-ad {
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 95%;
         }
 
         /* Mobile Optimization */
@@ -255,35 +197,6 @@
         </nav>
         <hr class="styled-line">
         
-        <div class="ad top-left">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8336377832206855"
-            crossorigin="anonymous"></script>
-            <!-- visual_adp -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-8336377832206855"
-                data-ad-slot="8768725818"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        <div class="ad top-right">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8336377832206855"
-            crossorigin="anonymous"></script>
-            <!-- visual_adp -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-8336377832206855"
-                data-ad-slot="8768725818"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        
         <div class="news-container">
             <div class="latest-news">
                 <h2>Detroit Become Human - Megjelent a magyar szinkron!</h2>
@@ -292,9 +205,6 @@
                     A minden elismerés megérdemlő csapat az alant megtekinthető videó keretében fedte fel a közönség előtt, hogy 2025. március 3-án, tehát kevesebb mint egy hónap múlva válik elérhetővé a Detroit: Become Human teljesen ingyenes magyar szinkronja, amit rögtön kétféle változatban érhetnek el a rajongók – az egyik „csak” az alapjátékot tartalmazza, a másik pedig több kivágott jelenetet, párbeszédet és interakciót is visszahelyez a játékba.
                     Link a szinkronhoz: <a href="https://szinkronsarok.hu/propage.php?projekt=detroit_become_human" target="_blank">SzinkronSarok</a>
                 </p>
-                <hr>
-                <p>YouTube videó (Nessaj végigjátszásáról):</p>
-                <iframe class="ytvideo" width="840" height="472.5" src="https://www.youtube.com/embed/s8MCsF2rl0g?si=k2TUCityNUqrEJm2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -314,22 +224,6 @@
                 </div>
                 <button class="arrow1" onclick="nextNews()">&#9654;</button>
             </div>
-        </div>
-
-        <div class="ad bottom-ad" id="bottomAd">
-            <span class="close-ad" onclick="closeAd()">X</span>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8336377832206855"
-            crossorigin="anonymous"></script>
-            <!-- visual_adp -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-8336377832206855"
-                data-ad-slot="8768725818"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
 
         <script>
