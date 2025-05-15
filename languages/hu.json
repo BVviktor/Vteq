@@ -38,5 +38,17 @@
 	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> Elfogadom az <a href=\"../etc/privpolicy.html\" target=\"_blank\">adatkezelési tájékoztatóban</a> leírtakat.",
 	"reset" :"Mégse",
 	"submit": "Küldés",
-	"placeholder": "Kérjük, részletesen írja le projektjét vagy kérését (legfeljebb 5000 karakter). Nyugodtan csatoljon releváns példákat, követelményeket vagy bármilyen kérdést."
+	"placeholder": "Kérjük, részletesen írja le projektjét vagy kérését (legfeljebb 5000 karakter). Nyugodtan csatoljon releváns példákat, követelményeket vagy bármilyen kérdést.",
+	"_PAGE5": "Portfolio",
+	"portfolio": "Portfólió",
+	"portf_pg1_h1": "Csavarerő- és meghúzási nyomaték számító eszköz",
+	"portf_pg1_p1": "<strong>Használt eszközök:</strong> C# (WindowsForms), XML (bemenet/kimenet)<br><strong>Operációs rendszer:</strong> Windows, PC<br><strong>Leírás:</strong> Egy egyszerű eszköz, amely kiszámítja a csavarerőt és a meghúzási nyomatékot a megadott paraméterek alapján. Az eredményeket XML fájlban menti.<br>",
+	"portf_pg1_h2": "Főtengely hajtáslánc erő/nyomaték számító és kiegyensúlyozó optimalizáló alkalmazás",
+	"portf_pg1_p2": "<strong>Használt eszközök:</strong> C# (WindowsForms), XML (bemenet/kimenet), Matlab, Excel, Photoshop<br><strong>Operációs rendszer:</strong> Windows, PC<br><strong>Leírás:</strong> Ez az eszköz kiszámítja a főtengelylánc erőit/nyomatékát a bemeneti paraméterek alapján. Képes kiegyensúlyozó tengelyek optimalizálására a nyomaték minimalizálása és a főtengely erőinek lenullázása érdekében. Az eredményeket XML fájlban menti.<br>",
+	"portf_pg1_h3": "Kuplungkapcsoló tesztelésére szolgáló tesztpad kezelőfelület",
+	"portf_pg1_p3": "<strong>Használt eszközök:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br><strong>Operációs rendszer:</strong> Linux, Raspberry PI<br><strong>Leírás:</strong> Ez egy egyszerű felhasználói felület egy tesztpadhoz, amely különböző körülmények (hőmérséklet, nyomás stb.) között képes kuplungkapcsolókat tesztelni. Vezérli a tesztpadot, adatokat gyűjt, jelentést készít, és az eredményeket XML formátumban vezeték nélkül továbbítja a Raspberry PI-ről a PC-re.<br>",
+	"portf_pg1_h4": "Diagnosztikai állapotmaszk generátor hibakódokhoz (DTC)",
+	"portf_pg1_p4": "<strong>Használt eszközök:</strong> Python<br><strong>Operációs rendszer:</strong> Windows, PC<br><strong>Leírás:</strong> Egy egyszerű eszköz, amely diagnosztikai állapotmaszkot generál a hibakódok (DTC) számára a bemeneti paraméterek alapján.<br>"
 }
+
+

@@ -38,5 +38,16 @@
 	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> Ich stimme der <a href=\"../etc/privpolicy.html\" target=\"_blank\">Datenschutzerklärung</a> zu",
 	"reset": "Zurücksetzen",
 	"submit": "Anfrage erstellen",
-	"placeholder": "Bitte beschreiben Sie Ihr Projekt oder Ihre Anfrage ausführlich (bis zu 5000 Zeichen). Fügen Sie gerne relevante Beispiele, Anforderungen oder Fragen hinzu."
+	"placeholder": "Bitte beschreiben Sie Ihr Projekt oder Ihre Anfrage ausführlich (bis zu 5000 Zeichen). Fügen Sie gerne relevante Beispiele, Anforderungen oder Fragen hinzu.",
+	"_PAGE5": "Portfolio",
+	"portfolio": "Portfolio",
+	"portf_pg1_h1": "Werkzeug zur Berechnung von Schraubenkraft und Anziehmoment",
+	"portf_pg1_p1": "<strong>Verwendete Tools:</strong> C# (WindowsForms), XML (Ein-/Ausgabe)<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong> Ein einfaches Tool zur Berechnung der Schraubenkraft und des Anziehmoments anhand von Eingabewerten. Die Ergebnisse werden in einer XML-Datei gespeichert.<br>",
+	"portf_pg1_h2": "Kurbeltrieb-Kraft-/Drehmomentrechner mit Ausgleichswellen-Optimierung",
+	"portf_pg1_p2": "<strong>Verwendete Tools:</strong> C# (WindowsForms), XML (Ein-/Ausgabe), Matlab, Excel, Photoshop<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong> Ein Tool zur Berechnung von Kräften und Drehmomenten im Kurbeltrieb. Es ermöglicht die Optimierung von Ausgleichswellen, um Drehmomente zu minimieren und Kurbelwellenkräfte auf null zu setzen. Ergebnisse werden als XML-Datei ausgegeben.<br>",
+	"portf_pg1_h3": "Prüfstandmanager für Kupplungstests",
+	"portf_pg1_p3": "<strong>Verwendete Tools:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br><strong>Betriebssystem:</strong> Linux, Raspberry PI<br><strong>Beschreibung:</strong> Einfache Benutzeroberfläche für einen Prüfstand, der Kupplungen unter verschiedenen Bedingungen (Temperatur, Druck etc.) testet. Steuert das System, sammelt Daten, erstellt Berichte und überträgt Ergebnisse kabellos im XML-Format auf den PC.<br>",
+	"portf_pg1_h4": "Diagnosemasken-Generator für Fehlercodes (DTC)",
+	"portf_pg1_p4": "<strong>Verwendete Tools:</strong> Python<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong> Ein einfaches Tool zur Generierung von Diagnosemasken für Fehlercodes (DTC) basierend auf Eingabewerten.<br>"
 }
+

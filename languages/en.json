@@ -38,5 +38,15 @@
 	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\"> I agree to the <a href=\"../etc/privpolicy.html\" target=\"_blank\">privacy policy</a>",
 	"reset" :"Reset",
 	"submit": "Create Request",
-	"placeholder": "Please describe your project or inquiry in detail (up to 5000 characters). Feel free to include relevant examples, requirements, or any questions you might have."
+	"placeholder": "Please describe your project or inquiry in detail (up to 5000 characters). Feel free to include relevant examples, requirements, or any questions you might have.",
+	"_PAGE5": "Portfolio",
+	"portfolio": "Portfolio",
+	"portf_pg1_h1": "Bolt force and tightening torque calculator tool",
+	"portf_pg1_p1": "<strong>Tools used:</strong> C# (WindowsForms), XML (input/output)<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong> This is a simple tool that calculates the bolt force and tightening torque based on the input parameters. It also generates an XML file with the results.<br>",
+	"portf_pg1_h2": "Cranktrain force/torque calculator app with balancer optimization tool",
+	"portf_pg1_p2": "<strong>Tools used:</strong> C# (WindowsForms), XML (input/output), Matlab, Excel, Photoshop<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong> This is a simple tool that calculates the cranktrain force/torque based on the input parameters. It also generates an XML file with the results. It is capable for balancer shaft optimizations to minimalise the torques and to reset the crankshaft forces to zero.<br>",
+	"portf_pg1_h3": "Testbed manager tool for clutch coupling test",
+	"portf_pg1_p3": "<strong>Tools used:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br><strong>OS:</strong> Linux, Raspberry PI<br><strong>Description:</strong> This is a simple user interface (UI) for a testbed. The testbed is capable of testing the clutch couplings in different conditions (temperature, pressure, etc.). It is capable of controlling the testbed, collecting data, and generating reports. It also generates an XML file with the results which are afterward transfered from Raspberry to PC wireless.<br>",
+	"portf_pg1_h4": "Diagnostic status mask generator for trouble codes (DTC)",
+	"portf_pg1_p4": "<strong>Tools used:</strong> Python<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong> This is a simple tool that generates a diagnostic status mask for trouble codes (DTC). The tool is capable of generating the mask based on the input parameters.<br>"
 }

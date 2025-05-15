@@ -10,9 +10,9 @@
     <meta property="og:description" content="Get professional IT services.">
     <meta property="og:image" content="https://vteq-it.com/images/logo.png">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="icon.ico"> <!-- Favicon for the page -->
+    <link rel="icon" href="../icon.ico"> <!-- Favicon for the page -->
     <style>
 
     </style>
@@ -26,7 +26,8 @@
             </a>
             <ul>
                 <li><a href="../home/index.html" data-translate="home"> <img src="../images/home.png" class="home" alt="home"> Home</a></li>
-                <li><a href="../news/index.html" data-translate="news">Tech News</a></li>
+                 <!--<li><a href="../works/index.html" data-translate="works">Tech works</a></li>-->
+                 <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
                 <li><a href="../about/index.html" data-translate="about">About Me</a></li>
                 <li><a href="../contact/index.html" data-translate="contact">Contact Me</a></li>
             </ul>
@@ -44,27 +45,140 @@
             </div>
         </nav>
         <hr class="styled-line">
-        <button class="arrow left-arrow">&#9664;</button>
-    <div class="portfolio-box">
-        <div class="left-text">
-            <h2>Geometry Dash 2.2 | Void Trash Cannon | Updated version</h2>
-            <p>My biggest project yet. Maybe some bug fixes are needed later, but I really wanted to upload it.
-                ~ 60 hours build time
-                ~ 55k objects
-                ID: 111746825
-                Song: Sicra - Trash Cannon (NGUAC)
-                SongID: 1348979
-                Creator name (me): BVviktor</p>
+
+    <button class="arrow left-arrow" onclick="prevWork()">&#9664;</button>
+    <!-- MAIN CONTENT -->   
+        <!-- PAGE 1 -->  
+        <div class="portfolio-box" id="works1">
+            <div class="left-text">
+                <h2 data-translate="portf_pg1_h1">Bolt force and tightening torque calculator tool</h2>
+                <img src="../images/munka1.png" alt="Project 1 Image">
+                <p data-translate="portf_pg1_p1">
+                    <strong>Tools used:</strong> C# (WindowsForms), XML (input/output)<br>
+                    <strong>OS:</strong> Windows, PC<br>
+                    <strong>Description:</strong>This is a simple tool that calculates the bolt force and tightening torque based on the input parameters. It also generates an XML file with the results.<br>
+                </p>
+            </div>
         </div>
-        <div class="right-content1">
-            <img src="images/index.png" alt="Project Image">
-            <iframe src="https://www.youtube.com/embed/cPE62irq4Yk" allowfullscreen></iframe>
+        <!-- PAGE 2 --> 
+        <div class="portfolio-box" id="works2">
+            <div class="left-text">
+                <h2 data-translate="portf_pg1_h2">Cranktrain force/torque calculator app with balancer optimization tool</h2>
+                <img src="../images/munka2.png" alt="Project 2 Image">
+                <p data-translate="portf_pg1_p2">
+                    <strong>Tools used:</strong> C# (WindowsForms), XML (input/output), Matlab, Excel, Photoshop<br>
+                    <strong>OS:</strong> Windows, PC<br>
+                    <strong>Description:</strong>This is a simple tool that calculates the cranktrain force/torque based on the input parameters. It also generates an XML file with the results. It is capable for balancer shaft optimizations to minimalise the torques and to reset the crankshaft forces to zero.<br>
+                </p>
+            </div>
         </div>
-    </div>
-    <button class="arrow right-arrow">&#9654;</button>
-    </div>
-    
-    <script src="script.js"></script>
+        <!-- PAGE 3 --> 
+        <div class="portfolio-box" id="works3">
+            <div class="left-text">
+                <h2 data-translate="portf_pg1_h3">Testbed manager tool for clutch coupling test</h2>
+                <img src="../images/munka3.png" alt="Project 3 Image">
+                <p data-translate="portf_pg1_p3">
+                    <strong>Tools used:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br>
+                    <strong>OS:</strong> Linux, Raspberry PI<br>
+                    <strong>Description:</strong>This is a simple user interface (UI) for a testbed. The testbed is capable of testing the clutch couplings in different conditions (temperature, pressure, etc.). It is capable of controlling the testbed, collecting data, and generating reports. It also generates an XML file with the results which are afterward transfered from Raspberry to PC wireless.<br>
+                </p>
+            </div>
+        </div>
+            <!-- PAGE 4 --> 
+            <div class="portfolio-box" id="works4">
+                <div class="left-text">
+                    <h2 data-translate="portf_pg1_h4">Diagnostic status mask generator for trouble codes (DTC)</h2>
+                    <img src="../images/munka4.png" alt="Project 4 Image">
+                    <p data-translate="portf_pg1_p4">
+                        <strong>Tools used:</strong> Python<br>
+                        <strong>OS:</strong> Windows, PC<br>
+                        <strong>Description:</strong>This is a simple tool that generates a diagnostic status mask for trouble codes (DTC). The tool is capable of generating the mask based on the input parameters.<br>
+                    </p>
+                </div>
+            </div>
+    <!-- MAIN CONTENT --> 
+    <button class="arrow right-arrow" onclick="nextWork()">&#9654;</button>
+
+    <script>
+        const portfolioBoxes = document.querySelectorAll(".portfolio-box");
+        const leftArrow = document.querySelector(".left-arrow");
+        const rightArrow = document.querySelector(".right-arrow");
+        let currentWork = 0;
+
+        function showWork(index, direction = 'right') {
+            if (index < 0 || index >= portfolioBoxes.length) return;
+
+            // Hide all
+            portfolioBoxes.forEach(box => {
+                box.style.display = "none";
+                box.classList.remove("slide-left", "slide-right");
+            });
+
+            // Add animation
+            const currentBox = portfolioBoxes[index];
+            currentBox.style.display = "flex";
+            requestAnimationFrame(() => {
+                currentBox.classList.add(direction === 'right' ? 'slide-right' : 'slide-left');
+            });
+
+            currentWork = index;
+            updateURLWithPage(index + 1);
+        }
+
+        function updateURLWithPage(pageNumber) {
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set("page", pageNumber);
+            window.history.pushState({}, '', newUrl);
+        }
+
+        // Arrow buttons
+        leftArrow.addEventListener("click", () => {
+            const newIndex = currentWork - 1;
+            if (newIndex >= 0) showWork(newIndex, 'left');
+        });
+
+        rightArrow.addEventListener("click", () => {
+            const newIndex = currentWork + 1;
+            if (newIndex < portfolioBoxes.length) showWork(newIndex, 'right');
+        });
+
+        // Touch support for swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener("touchstart", e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener("touchend", e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            const swipeDistance = touchEndX - touchStartX;
+            if (swipeDistance > 50) {
+                // Swipe right → show previous
+                if (currentWork > 0) showWork(currentWork - 1, 'left');
+            } else if (swipeDistance < -50) {
+                // Swipe left → show next
+                if (currentWork < portfolioBoxes.length - 1) showWork(currentWork + 1, 'right');
+            }
+        }
+
+        // On load → check ?page=n
+        window.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get("page"));
+            if (!isNaN(page) && page > 0 && page <= portfolioBoxes.length) {
+                showWork(page - 1, 'right');
+            } else {
+                showWork(0); // Default to first
+            }
+        });
+
+    </script>
+    <script src="../script.js"></script>
 </body>
 
 <footer>
