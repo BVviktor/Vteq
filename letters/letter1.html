@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Levél 💌</title>
+
+  <meta property="og:image" content="https://vteq-it.com/images/envelope1.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="icon" href="../envelope1.ico"> <!-- Favicon for the page -->
+
+  <style>
+    :root{
+      --bg:#fff6fb;
+      --ink:#2b2b2b;
+      --env:#ffd6e7;
+      --env2:#ffbfd9;
+      --shadow: rgba(0,0,0,.10);
+      --paper:#ffffff;
+      --paperEdge:#f1f1f4;
+      --accent:#8a2be2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background: radial-gradient(1200px 800px at 50% 30%, #ffffff 0%, var(--bg) 50%, #ffeaf5 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+    }
+    .wrap{
+      width:min(520px, 92vw);
+      text-align:center;
+    }
+    h1{ margin:0 0 8px; font-size:22px; font-weight:700; }
+    .hint{ margin:0 0 18px; opacity:.75; font-size:14px; }
+
+    /* Stage */
+    .stage{
+      position:relative;
+      width:340px;
+      height:260px;
+      margin: 0 auto;
+      filter: drop-shadow(0 16px 22px var(--shadow));
+      user-select:none;
+      touch-action:none;
+    }
+
+    /* Envelope (container) */
+    .env{
+      position:absolute;
+      left:50%;
+      bottom:0;
+      transform:translateX(-50%);
+      width:340px;
+      height:210px;
+      border-radius:18px;
+      background: linear-gradient(180deg, var(--env) 0%, var(--env2) 100%);
+      overflow:hidden;                /* IMPORTANT: hides paper inside */
+      z-index:3;
+    }
+
+    /* Paper INSIDE envelope so it can’t show underneath */
+    .paper{
+      position:absolute;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      width:300px;
+      height:210px;
+      background: linear-gradient(#fff, #fff) padding-box,
+                  linear-gradient(180deg, #fff, var(--paperEdge)) border-box;
+      border:1px solid transparent;
+      border-radius:16px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      overflow:hidden;
+      padding:14px 14px 16px;
+
+      /* Driven by --pull (0..1). Closed = pushed down deep inside envelope */
+      --pull: 0;
+      translate: 0 calc(170px * (1 - var(--pull)));
+      transition: translate 200ms ease, opacity 200ms ease;
+      opacity: calc(0.15 + (0.85 * var(--pull)));
+      pointer-events:none; /* non-editable + avoids weird tapping */
+      z-index:1;
+    }
+
+    .paper:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(138,43,226,.12) 0px,
+          rgba(138,43,226,.12) 2px,
+          transparent 2px,
+          transparent 34px
+        );
+      pointer-events:none;
+      opacity:.65;
+    }
+
+    .paper .title{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding-bottom:8px;
+      border-bottom:1px dashed rgba(0,0,0,.08);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .paper .title span{ font-size:14px; opacity:.9; }
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(138,43,226,.10);
+      color: var(--accent);
+      font-weight:650;
+    }
+
+    .lines{
+      position:relative;
+      display:grid;
+      gap:10px;
+      margin-top:8px;
+    }
+    .line{
+      background: rgba(255,255,255,.85);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+      text-align:left;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* Decorative folds */
+    .env .left,
+    .env .right{
+      position:absolute;
+      top:0;
+      width:50%;
+      height:100%;
+      background: rgba(255,255,255,.08);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+      z-index:4;
+      pointer-events:none;
+    }
+    .env .right{
+      right:0;
+      transform: scaleX(-1);
+    }
+    .env .bottom{
+      position:absolute;
+      left:0; right:0; bottom:-1px;
+      height:62%;
+      background: rgba(255,255,255,.10);
+      clip-path: polygon(0 100%, 50% 30%, 100% 100%, 100% 0, 0 0);
+      filter: brightness(.98);
+      z-index:5;
+      pointer-events:none;
+    }
+
+    /* Top flap (draggable) */
+    .flap{
+    position:absolute;
+    left:50%;
+    /* ezt állítjuk: zárt állapotban a boríték tetejére üljön */
+    top:50px;
+    width:340px;
+    height:155px;
+    background: linear-gradient(180deg, #ffc6de 0%, #ffb3d5 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 78%);
+
+    /* A fedél zsanérja a boríték tetején van */
+    transform-origin: 50% 0%;
+
+    /* pull: 0 -> zárt (laposan), pull: 1 -> nyitott (felhajtva) */
+    --pull: 0;
+
+    /* ZÁRT: 0deg (lapos), NYITOTT: -180deg (felhajtva hátra) */
+    transform: translateX(-50%) rotateX(calc(-180deg * var(--pull)));
+
+    transition: transform 200ms ease;
+    cursor: grab;
+    z-index:6;
+    }
+    .flap:active{ cursor: grabbing; }
+
+    /* Heart seal: legyen a flap gyereke és mozogjon vele */
+    .flap .seal{
+    position:absolute;
+    left:50%;
+    top:86px;
+    transform:translateX(-50%);
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    background: rgba(255,255,255,.35);
+    display:grid;
+    place-items:center;
+    box-shadow: 0 8px 18px rgba(0,0,0,.10);
+    backdrop-filter: blur(6px);
+    pointer-events:none;
+    }
+    .flap .seal .heart{
+    font-size:22px;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,.10));
+    }
+
+
+    /* Buttons */
+    .row{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    button{
+      border:0;
+      background:#ffffff;
+      color:#333;
+      padding:10px 12px;
+      border-radius:999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      cursor:pointer;
+      font-weight:650;
+      font-size:13px;
+    }
+    button:hover{ transform: translateY(-1px); }
+    button:active{ transform: translateY(0px); }
+
+    .footer{
+      margin-top:10px;
+      font-size:12px;
+      opacity:.7;
+    }
+
+    /* Click hearts */
+    .heart-pop{
+    position: fixed;
+    left: 0; top: 0;
+    pointer-events: none;
+    z-index: 999999; /* mindig mindent felül */
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    animation: heartFloat 900ms ease-out forwards;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.12));
+    will-change: transform, opacity;
+    }
+
+    @keyframes heartFloat{
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+    10%  { opacity: 1; transform: translate(-50%, -55%) scale(1.0); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% - 90px)) scale(1.25); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Nyisd ki a boritékot! 💌</h1>
+    <p class="hint">Fogd meg a tetejét és húzd fel.</p>
+    <p class="hint">(Volt egy kis szabadidőm munkán :D)</p>
+
+    <div class="stage" id="stage">
+      <!-- Envelope contains paper so it stays hidden -->
+      <div class="env" id="env">
+        <div class="paper" id="paper">
+          <div class="title">
+            <span>Neked ✨</span>
+            <div class="chip" id="statusChip">zárva</div>
+          </div>
+
+          <!-- NOT EDITABLE: just text divs -->
+          <div class="lines">
+            <div class="line" id="l1"></div>
+            <div class="line" id="l2"></div>
+            <div class="line" id="l3"></div>
+            <div class="line" id="l4"></div>
+          </div>
+        </div>
+
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+      </div>
+
+      <div class="flap" id="flap">
+        <div class="seal"><div class="heart">💜</div></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="openBtn">Kinyit</button>
+      <button id="closeBtn">Bezár</button>
+    </div>
+
+  </div>
+
+  <script>
+    // ✅ EDIT ONLY HERE (not on the page)
+    const LINES = [
+      "Szi Ancsa 🙂",
+      "Ezt neked csináltam,",
+      "Örülök, hogy beszélünk, kedvellek! <3"
+    ];
+
+    // 💜 Click-to-heart effect
+    const HEARTS = ["💜","💗","💖","💞","💘"];
+
+    // Put the lines into the paper
+    document.getElementById('l1').textContent = LINES[0] || "";
+    document.getElementById('l2').textContent = LINES[1] || "";
+    document.getElementById('l3').textContent = LINES[2] || "";
+    document.getElementById('l4').textContent = LINES[3] || "";
+
+    const flap = document.getElementById('flap');
+    const paper = document.getElementById('paper');
+    const chip = document.getElementById('statusChip');
+
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // pull: 0 (closed) -> 1 (open)
+    let pull = 0;
+    let dragging = false;
+    let startY = 0;
+    let startPull = 0;
+
+    function setPull(v){
+      pull = Math.max(0, Math.min(1, v));
+      flap.style.setProperty('--pull', pull.toFixed(3));
+      paper.style.setProperty('--pull', pull.toFixed(3));
+      chip.textContent = pull > 0.85 ? 'Nyitott' : (pull < 0.15 ? 'Zárt' : 'Húzd erőssebben!');
+    }
+
+    function yFromEvent(e){
+      if (e.touches && e.touches[0]) return e.touches[0].clientY;
+      return e.clientY;
+    }
+
+    function onDown(e){
+      dragging = true;
+      flap.setPointerCapture?.(e.pointerId);
+      startY = yFromEvent(e);
+      startPull = pull;
+    }
+    function onMove(e){
+      if (!dragging) return;
+      const y = yFromEvent(e);
+      const dy = startY - y; // dragging upward increases pull
+      const normalized = dy / 140; // sensitivity
+      setPull(startPull + normalized);
+      e.preventDefault?.();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      // snap open/closed
+      setPull(pull > 0.5 ? 1 : 0);
+    }
+
+    flap.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove, { passive:false });
+    window.addEventListener('pointerup', onUp);
+
+    flap.addEventListener('touchstart', onDown, { passive:false });
+    window.addEventListener('touchmove', onMove, { passive:false });
+    window.addEventListener('touchend', onUp);
+
+    openBtn.addEventListener('click', () => setPull(1));
+    closeBtn.addEventListener('click', () => setPull(0));
+
+    setPull(0);
+
+    function spawnHeart(x, y){
+    const el = document.createElement("div");
+    el.className = "heart-pop";
+    el.textContent = HEARTS[Math.floor(Math.random() * HEARTS.length)];
+
+    // random oldalirányú sodródás
+    const dx = (Math.random() * 80 - 40).toFixed(0) + "px";
+    el.style.setProperty("--dx", dx);
+
+    el.style.left = x + "px";
+    el.style.top  = y + "px";
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1000);
+    }
+
+    let heartInterval = null;
+    let lastX = 0;
+    let lastY = 0;
+
+    function startHearts(){
+    if (heartInterval) return;
+
+    heartInterval = setInterval(() => {
+        spawnHeart(lastX, lastY);   // ✅ mindig az aktuális egérpozícióból
+    }, 150); // 👈 sebesség (ms) - nagyobb = lassabb
+    }
+
+    function stopHearts(){
+    clearInterval(heartInterval);
+    heartInterval = null;
+    }
+
+    // lenyomásra indul
+    document.addEventListener("pointerdown", (e) => {
+    if (e.target.closest("button")) return;
+
+    lastX = e.clientX;
+    lastY = e.clientY;
+
+    startHearts();
+    }, true);
+
+    // mozgás közben frissítjük a célpontot (ettől "követi")
+    document.addEventListener("pointermove", (e) => {
+    if (!heartInterval) return;
+
+    lastX = e.clientX;
+    lastY = e.clientY;
+    }, true);
+
+    // felengedésre megáll
+    document.addEventListener("pointerup", stopHearts, true);
+    document.addEventListener("pointercancel", stopHearts, true);
+
+
+    
+  </script>
+</body>
+</html>
