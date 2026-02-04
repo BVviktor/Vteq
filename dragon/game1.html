@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sárkány Lovaglás - Mini Játék</title>
+  <style>
+    :root {
+      color-scheme: only dark;
+      --bg: #02040f;
+      --bg-accent: #0b1233;
+      --fg: #f5f7ff;
+      --accent: #7ee7ff;
+      --danger: #ff7b7b;
+      --good: #8cffb3;
+      --pixel: 4px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Press Start 2P", "Courier New", monospace;
+    }
+
+    body {
+      background: radial-gradient(circle at top, var(--bg-accent) 0%, var(--bg) 60%, #000 100%);
+      color: var(--fg);
+      min-height: 100svh;
+      min-width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      overflow: hidden;
+    }
+
+    .game-shell {
+      width: min(100vw, 900px);
+      height: min(100svh, 700px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .game-header {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .game-header h1 {
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .game-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      font-size: clamp(0.6rem, 2.4vw, 0.8rem);
+    }
+
+    .game-panel {
+      position: relative;
+      background: #030615;
+      border: 2px solid var(--fg);
+      border-radius: 6px;
+      box-shadow: 0 0 0 3px #000, 0 0 12px rgba(126, 231, 255, 0.3);
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      background: transparent;
+    }
+
+    .hud {
+      position: absolute;
+      inset: 12px 12px auto 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: clamp(0.55rem, 2.4vw, 0.7rem);
+      pointer-events: none;
+    }
+
+    .hud .chip {
+      padding: 6px 10px;
+      border: 1px solid var(--fg);
+      background: rgba(5, 8, 24, 0.7);
+      border-radius: 4px;
+    }
+
+    .game-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: clamp(0.55rem, 2.2vw, 0.7rem);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .control-btn {
+      width: min(28vw, 120px);
+      height: min(14vw, 64px);
+      border: 2px solid var(--fg);
+      border-radius: 8px;
+      background: rgba(4, 8, 24, 0.9);
+      color: var(--fg);
+      font-size: clamp(0.55rem, 2.6vw, 0.8rem);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.1);
+      touch-action: manipulation;
+    }
+
+    .control-btn:active {
+      transform: translateY(2px);
+    }
+
+    .control-btn.primary {
+      background: rgba(126, 231, 255, 0.2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 4, 12, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      padding: 24px;
+      backdrop-filter: blur(2px);
+      font-size: clamp(0.7rem, 2.8vw, 0.9rem);
+    }
+
+    .overlay.hidden {
+      display: none;
+    }
+
+    .overlay button {
+      padding: 10px 16px;
+      border: 2px solid var(--fg);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #02040f;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    }
+
+    .overlay button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    @media (min-width: 768px) {
+      .controls {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+      }
+    }
+
+    @media (max-height: 700px) {
+      .game-shell {
+        height: 100svh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-header">
+      <h1>Petronella Sárkánya</h1>
+      <div class="game-stats">
+        <span>⬅️➡️ vagy érintés</span>
+        <span>🌋 Tűz: SPACE / 🔥 gomb</span>
+      </div>
+    </header>
+
+    <section class="game-panel">
+      <canvas id="gameCanvas" width="360" height="520" aria-label="Sárkányos játék"></canvas>
+      <div class="hud">
+        <div class="chip" id="scoreDisplay">Pont: 0</div>
+        <div class="chip" id="statusDisplay">Kész</div>
+      </div>
+      <div class="overlay" id="overlay">
+        <div id="overlayTitle">Indulhatunk?</div>
+        <div id="overlayText">Kerüld ki a meteorokat, tűzzel pedig szedd szét a legközelebbi akadályt.</div>
+        <button id="startButton">Start</button>
+      </div>
+    </section>
+
+    <footer class="game-footer">
+      <div class="controls">
+        <button class="control-btn" id="leftButton">Balra</button>
+        <button class="control-btn primary" id="fireButton">🔥 Tűz</button>
+        <button class="control-btn" id="rightButton">Jobbra</button>
+      </div>
+      <div>Mobilra optimalizált pixel-art mini játék ✨</div>
+    </footer>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const statusDisplay = document.getElementById("statusDisplay");
+    const overlay = document.getElementById("overlay");
+    const overlayTitle = document.getElementById("overlayTitle");
+    const overlayText = document.getElementById("overlayText");
+    const startButton = document.getElementById("startButton");
+    const leftButton = document.getElementById("leftButton");
+    const rightButton = document.getElementById("rightButton");
+    const fireButton = document.getElementById("fireButton");
+
+    const assets = {
+      dragon: new Image(),
+      meteor: new Image(),
+      fire: new Image(),
+      loaded: 0,
+      total: 3,
+      dragonFrames: 3,
+      fireFrames: 6,
+    };
+
+    assets.dragon.src = "./dragon-sprite.png";
+    assets.meteor.src = "./meteor.png";
+    assets.fire.src = "./fire-sprite.png";
+
+    function handleAssetLoad() {
+      assets.loaded += 1;
+      if (assets.loaded >= assets.total) {
+        startButton.disabled = false;
+        overlayTitle.textContent = "Indulhatunk?";
+        overlayText.textContent = "Kerüld ki a meteorokat, tűzzel pedig szedd szét a legközelebbi akadályt.";
+      } else {
+        overlayTitle.textContent = "Töltés...";
+        overlayText.textContent = `Assetek betöltése (${assets.loaded}/${assets.total})`;
+      }
+    }
+
+    assets.dragon.addEventListener("load", handleAssetLoad);
+    assets.meteor.addEventListener("load", handleAssetLoad);
+    assets.fire.addEventListener("load", handleAssetLoad);
+
+    startButton.disabled = true;
+
+    const gameState = {
+      running: false,
+      score: 0,
+      speed: 1.4,
+      spawnTimer: 0,
+      spawnRate: 80,
+      fireCooldown: 0,
+      width: canvas.width,
+      height: canvas.height,
+      stars: [],
+      frame: 0,
+    };
+
+    const player = {
+      x: canvas.width / 2,
+      y: canvas.height - 70,
+      width: 48,
+      height: 48,
+      vx: 0,
+      speed: 3.2,
+      fireActive: false,
+      fireTimer: 0,
+    };
+
+    const obstacles = [];
+    const fragments = [];
+
+    const keys = {
+      left: false,
+      right: false,
+    };
+
+    function initStars() {
+      gameState.stars = Array.from({ length: 40 }).map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speed: Math.random() * 0.5 + 0.3,
+      }));
+    }
+
+    function resetGame() {
+      gameState.score = 0;
+      gameState.speed = 1.4;
+      gameState.spawnTimer = 0;
+      gameState.spawnRate = 80;
+      gameState.fireCooldown = 0;
+      obstacles.length = 0;
+      fragments.length = 0;
+      player.x = canvas.width / 2;
+      player.fireActive = false;
+      player.fireTimer = 0;
+      initStars();
+      updateHUD("Kész");
+    }
+
+    function updateHUD(status) {
+      scoreDisplay.textContent = `Pont: ${gameState.score}`;
+      statusDisplay.textContent = status;
+    }
+
+    function spawnObstacle() {
+      const size = Math.random() * 14 + 18;
+      obstacles.push({
+        x: Math.random() * (canvas.width - size) + size / 2,
+        y: -size,
+        size,
+        vy: gameState.speed + Math.random() * 1.2,
+      });
+    }
+
+    function drawPixelDragon() {
+      const px = player.x;
+      const py = player.y;
+
+      const frameWidth = assets.dragon.width / assets.dragonFrames || 0;
+      const frameHeight = assets.dragon.height || 0;
+      const frameIndex = Math.floor(gameState.frame / 8) % assets.dragonFrames;
+
+      const drawWidth = 68;
+      const drawHeight = 68;
+
+      if (frameWidth && frameHeight) {
+        ctx.drawImage(
+          assets.dragon,
+          frameIndex * frameWidth,
+          0,
+          frameWidth,
+          frameHeight,
+          px - drawWidth / 2,
+          py - drawHeight / 2,
+          drawWidth,
+          drawHeight
+        );
+      }
+
+      if (player.fireActive && assets.fire.width) {
+        const fireFrameWidth = assets.fire.width / assets.fireFrames;
+        const fireFrameHeight = assets.fire.height;
+        const fireFrameIndex = Math.floor(gameState.frame / 4) % assets.fireFrames;
+        const fireWidth = 36;
+        const fireHeight = 72;
+        ctx.drawImage(
+          assets.fire,
+          fireFrameIndex * fireFrameWidth,
+          0,
+          fireFrameWidth,
+          fireFrameHeight,
+          px - fireWidth / 2,
+          py - drawHeight / 2 - fireHeight + 6,
+          fireWidth,
+          fireHeight
+        );
+      }
+    }
+
+    function drawMeteor(obstacle) {
+      if (!assets.meteor.width) {
+        return;
+      }
+      ctx.save();
+      ctx.translate(obstacle.x, obstacle.y);
+      ctx.drawImage(
+        assets.meteor,
+        -obstacle.size / 2,
+        -obstacle.size / 2,
+        obstacle.size,
+        obstacle.size
+      );
+      ctx.restore();
+    }
+
+    function drawFragments() {
+      fragments.forEach(fragment => {
+        ctx.fillStyle = fragment.color;
+        ctx.fillRect(fragment.x, fragment.y, fragment.size, fragment.size);
+      });
+    }
+
+    function updateFragments() {
+      for (let i = fragments.length - 1; i >= 0; i -= 1) {
+        const fragment = fragments[i];
+        fragment.x += fragment.vx;
+        fragment.y += fragment.vy;
+        fragment.life -= 1;
+        if (fragment.life <= 0) {
+          fragments.splice(i, 1);
+        }
+      }
+    }
+
+    function explodeObstacle(obstacle) {
+      const colors = ["#ff7b7b", "#ffb347", "#f5f7ff"];
+      for (let i = 0; i < 12; i += 1) {
+        fragments.push({
+          x: obstacle.x,
+          y: obstacle.y,
+          vx: (Math.random() - 0.5) * 3,
+          vy: (Math.random() - 0.5) * 3,
+          size: Math.random() * 3 + 2,
+          life: 30,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        });
+      }
+    }
+
+    function updatePlayer() {
+      if (keys.left) {
+        player.vx = -player.speed;
+      } else if (keys.right) {
+        player.vx = player.speed;
+      } else {
+        player.vx = 0;
+      }
+
+      player.x += player.vx;
+      const bound = player.width / 2;
+      player.x = Math.max(bound, Math.min(canvas.width - bound, player.x));
+
+      if (player.fireActive) {
+        player.fireTimer -= 1;
+        if (player.fireTimer <= 0) {
+          player.fireActive = false;
+        }
+      }
+    }
+
+    function updateStars() {
+      gameState.stars.forEach(star => {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = -2;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function drawStars() {
+      ctx.fillStyle = "#7ee7ff";
+      gameState.stars.forEach(star => {
+        ctx.fillRect(star.x, star.y, star.size, star.size);
+      });
+    }
+
+    function updateObstacles() {
+      for (let i = obstacles.length - 1; i >= 0; i -= 1) {
+        const obstacle = obstacles[i];
+        obstacle.y += obstacle.vy;
+        if (obstacle.y - obstacle.size > canvas.height) {
+          obstacles.splice(i, 1);
+          gameState.score += 1;
+        }
+      }
+    }
+
+    function checkCollisions() {
+      for (const obstacle of obstacles) {
+        const dx = Math.abs(obstacle.x - player.x);
+        const dy = Math.abs(obstacle.y - player.y);
+        if (dx < obstacle.size / 2 + player.width / 2 && dy < obstacle.size / 2 + player.height / 2) {
+          endGame();
+          return;
+        }
+      }
+    }
+
+    function fireBreath() {
+      if (gameState.fireCooldown > 0) {
+        return;
+      }
+      player.fireActive = true;
+      player.fireTimer = 12;
+      gameState.fireCooldown = 30;
+
+      let targetIndex = -1;
+      let closest = Infinity;
+      obstacles.forEach((obstacle, index) => {
+        if (obstacle.y < player.y && obstacle.y > player.y - 140) {
+          const distance = Math.abs(obstacle.x - player.x) + Math.abs(obstacle.y - player.y);
+          if (distance < closest) {
+            closest = distance;
+            targetIndex = index;
+          }
+        }
+      });
+
+      if (targetIndex !== -1) {
+        const removed = obstacles.splice(targetIndex, 1)[0];
+        explodeObstacle(removed);
+        gameState.score += 3;
+      }
+    }
+
+    function updateGame() {
+      if (!gameState.running) {
+        return;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      updateStars();
+      drawStars();
+
+      gameState.spawnTimer += 1;
+      if (gameState.spawnTimer >= gameState.spawnRate) {
+        gameState.spawnTimer = 0;
+        spawnObstacle();
+        gameState.spawnRate = Math.max(40, gameState.spawnRate - 1);
+        gameState.speed = Math.min(4, gameState.speed + 0.02);
+      }
+
+      if (gameState.fireCooldown > 0) {
+        gameState.fireCooldown -= 1;
+      }
+
+      updatePlayer();
+      updateObstacles();
+      updateFragments();
+
+      obstacles.forEach(drawMeteor);
+      drawFragments();
+      drawPixelDragon();
+
+      gameState.frame += 1;
+      updateHUD("Repülés");
+      checkCollisions();
+
+      requestAnimationFrame(updateGame);
+    }
+
+    function startGame() {
+      resetGame();
+      gameState.running = true;
+      overlay.classList.add("hidden");
+      updateHUD("Repülés");
+      requestAnimationFrame(updateGame);
+    }
+
+    function endGame() {
+      gameState.running = false;
+      overlayTitle.textContent = "Vége a játéknak!";
+      overlayText.textContent = `Pontszám: ${gameState.score}. Nyomj Start-ot az újrakezdéshez.`;
+      overlay.classList.remove("hidden");
+      updateHUD("Ütközés!");
+    }
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        keys.left = true;
+      }
+      if (event.key === "ArrowRight") {
+        keys.right = true;
+      }
+      if (event.key === " " || event.key === "Spacebar") {
+        fireBreath();
+      }
+    });
+
+    window.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowLeft") {
+        keys.left = false;
+      }
+      if (event.key === "ArrowRight") {
+        keys.right = false;
+      }
+    });
+
+    function bindButton(button, onPress, onRelease) {
+      const press = (event) => {
+        event.preventDefault();
+        onPress();
+      };
+      const release = (event) => {
+        event.preventDefault();
+        onRelease();
+      };
+      button.addEventListener("pointerdown", press);
+      button.addEventListener("pointerup", release);
+      button.addEventListener("pointerleave", release);
+    }
+
+    bindButton(leftButton, () => {
+      keys.left = true;
+    }, () => {
+      keys.left = false;
+    });
+
+    bindButton(rightButton, () => {
+      keys.right = true;
+    }, () => {
+      keys.right = false;
+    });
+
+    fireButton.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
+      fireBreath();
+    });
+
+    startButton.addEventListener("click", startGame);
+
+    initStars();
+    updateHUD("Kész");
+  </script>
+</body>
+</html>
