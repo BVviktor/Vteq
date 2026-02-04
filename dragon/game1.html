@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Sárkány Lovaglás - Mini Játék</title>
+  <title>Petronella Sárkánya</title>
   <style>
     :root {
       color-scheme: only dark;
@@ -367,7 +367,7 @@
         const fireFrameWidth = assets.fire.width / assets.fireFrames;
         const fireFrameHeight = assets.fire.height;
         const fireFrameIndex = Math.floor(gameState.frame / 4) % assets.fireFrames;
-        const fireWidth = 36;
+        const fireWidth = 32;
         const fireHeight = 72;
         ctx.drawImage(
           assets.fire,
@@ -477,7 +477,39 @@
         obstacle.y += obstacle.vy;
         if (obstacle.y - obstacle.size > canvas.height) {
           obstacles.splice(i, 1);
-          gameState.score += 1;
+          const penalty = Math.max(1, Math.round(obstacle.size / 8));
+          gameState.score -= penalty;
+        }
+      }
+    }
+
+    function checkFireCollisions() {
+      if (!player.fireActive) {
+        return;
+      }
+      const fireWidth = 36;
+      const fireHeight = 72;
+      const fireLeft = player.x - fireWidth / 2;
+      const fireRight = player.x + fireWidth / 2;
+      const fireTop = player.y - 68 - fireHeight + 6;
+      const fireBottom = player.y;
+
+      for (let i = obstacles.length - 1; i >= 0; i -= 1) {
+        const obstacle = obstacles[i];
+        const obstacleLeft = obstacle.x - obstacle.size / 2;
+        const obstacleRight = obstacle.x + obstacle.size / 2;
+        const obstacleTop = obstacle.y - obstacle.size / 2;
+        const obstacleBottom = obstacle.y + obstacle.size / 2;
+
+        const intersects = fireLeft < obstacleRight &&
+          fireRight > obstacleLeft &&
+          fireTop < obstacleBottom &&
+          fireBottom > obstacleTop;
+
+        if (intersects) {
+          const removed = obstacles.splice(i, 1)[0];
+          explodeObstacle(removed);
+          gameState.score += 3;
         }
       }
     }
@@ -500,24 +532,6 @@
       player.fireActive = true;
       player.fireTimer = 12;
       gameState.fireCooldown = 30;
-
-      let targetIndex = -1;
-      let closest = Infinity;
-      obstacles.forEach((obstacle, index) => {
-        if (obstacle.y < player.y && obstacle.y > player.y - 140) {
-          const distance = Math.abs(obstacle.x - player.x) + Math.abs(obstacle.y - player.y);
-          if (distance < closest) {
-            closest = distance;
-            targetIndex = index;
-          }
-        }
-      });
-
-      if (targetIndex !== -1) {
-        const removed = obstacles.splice(targetIndex, 1)[0];
-        explodeObstacle(removed);
-        gameState.score += 3;
-      }
     }
 
     function updateGame() {
@@ -544,6 +558,7 @@
       updatePlayer();
       updateObstacles();
       updateFragments();
+      checkFireCollisions();
 
       obstacles.forEach(drawMeteor);
       drawFragments();
