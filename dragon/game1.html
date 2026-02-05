@@ -42,6 +42,8 @@
       grid-template-rows: auto 1fr auto;
       gap: 12px;
       padding: 16px;
+	  -webkit-user-select: none;
+	  user-select: none;
     }
 
     .game-header {
@@ -186,6 +188,31 @@
         height: 100svh;
       }
     }
+	
+	.score-toast {
+	  position: absolute;
+	  top: 10px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  z-index: 5;
+	  padding: 8px 12px;
+	  border: 1px solid var(--accent);
+	  background: rgba(5, 8, 24, 0.85);
+	  color: var(--accent);
+	  border-radius: 6px;
+	  font-size: clamp(0.55rem, 2.4vw, 0.7rem);
+	  text-align: center;
+	  opacity: 0;
+	  pointer-events: none;
+	  transition: opacity 200ms ease, transform 200ms ease;
+	  white-space: nowrap;
+	}
+
+	.score-toast.show {
+	  opacity: 1;
+	  transform: translateX(-50%) translateY(2px);
+	}
+
   </style>
 </head>
 <body>
@@ -204,6 +231,7 @@
         <div class="chip" id="scoreDisplay">Pont: 0</div>
         <div class="chip" id="statusDisplay">Kész</div>
       </div>
+	  <div class="score-toast" id="scoreToast" aria-live="polite"></div>
       <div class="overlay" id="overlay">
         <div id="overlayTitle">Indulhatunk?</div>
         <div id="overlayText">Kerüld ki a meteorokat, tűzzel pedig szedd szét a legközelebbi akadályt.</div>
@@ -234,6 +262,7 @@
     const leftButton = document.getElementById("leftButton");
     const rightButton = document.getElementById("rightButton");
     const fireButton = document.getElementById("fireButton");
+	const scoreToast = document.getElementById("scoreToast");
 
     const assets = {
       dragon: new Image(),
@@ -279,6 +308,36 @@
       stars: [],
       frame: 0,
     };
+	
+	const scoreMilestones = new Map([
+	  [50, "50 pont! Nem semmi kislány! 🚀"],
+	  [100, "100 pont! Najó, szép munka! ✨"],
+	  [200, "200 pont! Egyem meg de ügyeees! 🐉"],
+	  [500, "500 pont! Eljöhetsz velem randizni! 🔥"],
+	  [2000, "2000 pont!! LEGENDA! 👑"],
+	]);
+
+	let reachedMilestones = new Set();
+	let toastTimer = null;
+
+	function showToast(message) {
+	  scoreToast.textContent = message;
+	  scoreToast.classList.add("show");
+	  if (toastTimer) clearTimeout(toastTimer);
+	  toastTimer = setTimeout(() => {
+		scoreToast.classList.remove("show");
+	  }, 2000);
+	}
+
+	function checkMilestones() {
+	  for (const [threshold, message] of scoreMilestones.entries()) {
+		if (!reachedMilestones.has(threshold) && gameState.score >= threshold) {
+		  reachedMilestones.add(threshold);
+		  showToast(message);
+		}
+	  }
+	}
+
 
     const player = {
       x: canvas.width / 2,
@@ -321,6 +380,11 @@
       player.fireTimer = 0;
       initStars();
       updateHUD("Kész");
+	  reachedMilestones = new Set();
+	scoreToast.classList.remove("show");
+	scoreToast.textContent = "";
+	if (toastTimer) clearTimeout(toastTimer);
+	toastTimer = null;
     }
 
     function updateHUD(status) {
@@ -479,6 +543,7 @@
           obstacles.splice(i, 1);
           const penalty = Math.max(1, Math.round(obstacle.size / 8));
           gameState.score -= penalty;
+		  checkMilestones();
         }
       }
     }
@@ -510,6 +575,7 @@
           const removed = obstacles.splice(i, 1)[0];
           explodeObstacle(removed);
           gameState.score += 3;
+		  checkMilestones();
         }
       }
     }
