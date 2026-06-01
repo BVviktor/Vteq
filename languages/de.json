@@ -48,6 +48,10 @@
 	"portf_pg1_h3": "Prüfstandmanager für Kupplungstests",
 	"portf_pg1_p3": "<strong>Verwendete Tools:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br><strong>Betriebssystem:</strong> Linux, Raspberry PI<br><strong>Beschreibung:</strong> Einfache Benutzeroberfläche für einen Prüfstand, der Kupplungen unter verschiedenen Bedingungen (Temperatur, Druck etc.) testet. Steuert das System, sammelt Daten, erstellt Berichte und überträgt Ergebnisse kabellos im XML-Format auf den PC.<br>",
 	"portf_pg1_h4": "Diagnosemasken-Generator für Fehlercodes (DTC)",
-	"portf_pg1_p4": "<strong>Verwendete Tools:</strong> Python<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong> Ein einfaches Tool zur Generierung von Diagnosemasken für Fehlercodes (DTC) basierend auf Eingabewerten.<br>"
+	"portf_pg1_p4": "<strong>Verwendete Tools:</strong> Python<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong> Ein einfaches Tool zur Generierung von Diagnosemasken für Fehlercodes (DTC) basierend auf Eingabewerten.<br>",
+	"portf_pg1_h5": "Figma UI/UX-Prototyp",
+    "portf_pg1_p5": "<strong>Verwendete Tools:</strong> Figma<br><strong>Betriebssystem:</strong> Windows, PC<br><strong>Beschreibung:</strong>Ein UI/UX-Design für eine Kindersicherungs-App. Interaktiver Prototyp zur Demonstration von Anwendungsabläufen, Bildschirmdesigns und Konzepten zur Benutzererfahrung.<br>",
+	"portf_pg1_h6": "Browserbasiertes Drachen-Spiel",
+    "portf_pg1_p6": "<strong>Verwendete Tools:</strong> HTML, CSS, Javascript<br><strong>Betriebssystem:</strong> Web<br><strong>Beschreibung:</strong>Ein einfaches browserbasiertes 2D-Spiel, in dem man als Drache Hindernissen ausweichen muss.<br>"
 }
 

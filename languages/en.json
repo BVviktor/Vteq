@@ -48,5 +48,9 @@
 	"portf_pg1_h3": "Testbed manager tool for clutch coupling test",
 	"portf_pg1_p3": "<strong>Tools used:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br><strong>OS:</strong> Linux, Raspberry PI<br><strong>Description:</strong> This is a simple user interface (UI) for a testbed. The testbed is capable of testing the clutch couplings in different conditions (temperature, pressure, etc.). It is capable of controlling the testbed, collecting data, and generating reports. It also generates an XML file with the results which are afterward transfered from Raspberry to PC wireless.<br>",
 	"portf_pg1_h4": "Diagnostic status mask generator for trouble codes (DTC)",
-	"portf_pg1_p4": "<strong>Tools used:</strong> Python<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong> This is a simple tool that generates a diagnostic status mask for trouble codes (DTC). The tool is capable of generating the mask based on the input parameters.<br>"
+	"portf_pg1_p4": "<strong>Tools used:</strong> Python<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong> This is a simple tool that generates a diagnostic status mask for trouble codes (DTC). The tool is capable of generating the mask based on the input parameters.<br>",
+	"portf_pg1_h5": "Figma UI/UX Prototype",
+	"portf_pg1_p5": "<strong>Tools used:</strong> Figma<br><strong>OS:</strong> Windows, PC<br><strong>Description:</strong>An UI/UX design for parental control app. Interactive prototype demonstrating application workflows, screen designs and user experience concepts.<br>",
+	"portf_pg1_h6": "Browser-based Dragon Game",
+	"portf_pg1_p6": "<strong>Tools used:</strong> HTML, CSS, Javascript<br><strong>OS:</strong> Web<br><strong>Description:</strong>A simple 2D browser-based game where you need to avoid the obstacles as a dragon.<br>"
 }
