@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: Viktor Bakacs
+Site: https://vteq-it.com
+Location: Hungary
+Contact: bakacsviktor123 [at] email.com
+LinkedIn: https://linkedin.com/in/viktor-bakacs
+GitHub: https://github.com/BVviktor
+
+/* SITE */
+Language: Hungarian, English, German, Russian
+Standards: HTML5, CSS3, JavaScript
+Software: Hand-coded static site

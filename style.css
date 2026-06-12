@@ -465,6 +465,23 @@ form button span {
     border: 1px solid var(--color-border);
 }
 
+/* Larger hero laptop image on desktop only */
+@media (min-width: 901px) {
+    .hero-image img {
+        max-width: 620px;
+    }
+
+    .hero-badge {
+        bottom: -1.25rem;
+        left: -1.5rem;
+        padding: var(--space-md) var(--space-lg);
+    }
+
+    .hero-badge strong {
+        font-size: 1.35rem;
+    }
+}
+
 .hero-badge {
     position: absolute;
     bottom: -1rem;

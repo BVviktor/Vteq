@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLang =
         localStorage.getItem("selectedLanguage") ||
         new URL(window.location.href).searchParams.get("lang") ||
-        "en";
+        "hu";
     setLanguage(savedLang);
 });
 
@@ -74,8 +74,55 @@ function loadLanguage(lang) {
 
             // Load reviews for current language
             loadReviews(lang);
+
+            // Update page title & meta description for selected language (SEO + UX)
+            updatePageSeo(data, lang);
         })
         .catch((error) => console.error("Translation error:", error));
+}
+
+/* ==========================================================================
+   SEO — per-page title & description from language JSON
+   ========================================================================== */
+
+function getPageSeoKey() {
+    const path = window.location.pathname;
+    if (path.includes("/news/20250325")) return "news-article";
+    if (path.includes("/news/")) return "news";
+    if (path.includes("/about/")) return "about";
+    if (path.includes("/contact/")) return "contact";
+    if (path.includes("/portfolio/")) return "portfolio";
+    if (path.includes("/home/")) return "home";
+    return "home";
+}
+
+function updatePageSeo(data, lang) {
+    const page = getPageSeoKey();
+    const title = data[`seo-${page}-title`];
+    const desc = data[`seo-${page}-desc`];
+    if (title) document.title = title;
+    if (desc) {
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", desc);
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute("content", desc);
+    }
+    if (title) {
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute("content", title);
+        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute("content", title);
+    }
+    if (desc) {
+        const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDesc) twitterDesc.setAttribute("content", desc);
+    }
+    // Update og:locale for social crawlers that re-fetch
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) {
+        const locales = { en: "en_US", hu: "hu_HU", de: "de_DE", ru: "ru_RU" };
+        ogLocale.setAttribute("content", locales[lang] || "en_US");
+    }
 }
 
 function initLanguageSelector() {

@@ -1,0 +1,17 @@
+{
+  "name": "Vteq IT — Web & Software Development",
+  "short_name": "Vteq IT",
+  "description": "Webfejlesztés, mobilalkalmazások és egyedi szoftverfejlesztés.",
+  "start_url": "/home/index.html",
+  "display": "browser",
+  "background_color": "#0b1628",
+  "theme_color": "#2563eb",
+  "lang": "hu",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
