@@ -1,173 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
-    <title>Vteq IT - Freelance Software Engineering Services</title>
-    <meta name="description" content="Professional IT services including web development, embedded systems, and consultation.">
     <meta charset="UTF-8">
-
-    <meta property="og:title" content="Vteq IT - Freelance Software Engineering">
-    <meta property="og:description" content="Get professional IT services.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vteq IT — Professional Software Engineering Services</title>
+    <meta name="description" content="Custom software development, web applications, embedded systems and technical consulting. Build with a professional software engineer.">
+    <meta property="og:title" content="Vteq IT — Software Engineering Services">
+    <meta property="og:description" content="Modern websites, custom software and engineering solutions for your business.">
     <meta property="og:image" content="https://vteq-it.com/images/logo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="../icon.ico"> <!-- Favicon for the page -->
-    <style>
-        /* Responsive Design */
-        @media (max-width: 768px) {
-
-            .laptop {
-                position: absolute;
-                margin-top: 170%;
-                left: 4%;
-                width: 500px;
-                height: 250px;
-                max-width: 50%;
-            }
-                .laptop1 {
-                width: 500px;
-                height: 250px;
-                max-width: 180%;
-            }
-
-            .text-container {
-                max-width: 90%;
-                margin-top: 43%;
-                margin-left: 2%;
-                position: static;
-                padding: 20px;
-            }
-
-            .left-content {
-                flex: 1;
-                padding: 20px;
-                margin-top: 80%;
-                margin-left: 2%;
-                max-width: 90%;
-            }
-
-            .container, .text-container2 {
-            flex-direction: column;
-            }
-            .left-content, .right-content, .text-container, .laptop1 {
-                order: -1;
-                padding: 10px;
-            }
-            .right-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .services {
-                order: -1;
-            }
-
-            .laptop-guy {
-            position: absolute;
-            margin: 80% -5% 0% 0%;
-            width: 500px;
-            height: 250px;
-            max-width: 90%;
-            max-block-size: 90%;
-            }
-
-            .hero {
-                min-height: 230vh;
-            }
-        }
-    </style>
+    <link rel="icon" href="../icon.ico">
 </head>
 <body>
-    <div class="hero">
+    <!-- Navigation — shared structure across all pages -->
+    <header>
         <nav class="navbar">
-            <img src="../images/menu.png" class="menu-img" alt="menu-logo">
             <a href="../home/index.html">
-                <img src="../images/logo.png" class="logo" alt="Logo">
+                <img src="../images/logo.png" class="logo" alt="Vteq IT Logo">
             </a>
-            <ul>
-                <li><a href="../home/index.html" data-translate="home"> <img src="../images/home.png" class="home" alt="home"> Home</a></li>
-                 <!--<li><a href="../news/index.html" data-translate="news">Tech News</a></li>-->
-                 <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
-                <li><a href="../about/index.html" data-translate="about">About Me</a></li>
-                <li><a href="../contact/index.html" data-translate="contact">Contact Me</a></li>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../home/index.html" data-translate="home">Home</a></li>
+                <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
+                <li><a href="../news/index.html" data-translate="news">Blog</a></li>
+                <li><a href="../about/index.html" data-translate="about">About</a></li>
+                <li><a href="../contact/index.html" data-translate="contact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <div class="selected-language">
-                    <img src="../images/en.png" class="lang-flag" alt="english"> en 
-                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <div class="selected-language">
+                        <img src="../images/en.png" class="lang-flag" alt="english"> en
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li data-lang="en"><img src="../images/en.png" alt="english"> en</li>
+                        <li data-lang="hu"><img src="../images/hu.png" alt="hungarian"> hu</li>
+                        <li data-lang="ru"><img src="../images/ru.png" alt="russian"> ru</li>
+                        <li data-lang="de"><img src="../images/de.png" alt="german"> de</li>
+                    </ul>
                 </div>
-                <ul class="language-dropdown">
-                    <li data-lang="en"><img src="../images/en.png" class="lang-flag" alt="english"> en</li>
-                    <li data-lang="hu"><img src="../images/hu.png" class="lang-flag" alt="hungarian"> hu</li>
-                    <li data-lang="ru"><img src="../images/ru.png" class="lang-flag" alt="russian"> ru</li>
-                    <li data-lang="de"><img src="../images/de.png" class="lang-flag" alt="german"> de</li>
-                </ul>
             </div>
         </nav>
-        <hr class="styled-line">
+    </header>
 
-        
-        <div class="laptop">
-            <img src="../images/laptop.png" class="laptop1" alt="laptop">
-        </div>
-        <div class="text-container">
-            <h1 data-translate="freelance">Freelance Software Engineering Services</h1>
-            <hr class="styled-line1">
-            <p data-translate="short-descr">As a software engineer with a passion for innovation, I create modern, high-performance websites tailored to your needs. With experience in embedded systems and engineering, I also offer solutions for technical projects. Additionally, I provide instructional services to help individuals or teams build their technical skills. Feel free to <a data-translate="reach" class="contact" href="../contact/index.html">reach out</a> for a consultation!</p>
-            <a href="../contact/index.html" data-translate="contact-btn">Contact Me!</a>
-        </div>
-        
-        <div class="text-container2">
-            <div class="left-content">
-                <h2 data-translate="services-h2">What I Can Do for You</h2>
-                <ul class="services" data-translate="services-ul">
-                    <li>✔️ Custom Website Design & Development</li>
-                    <li>✔️ Frontend & Backend Programming</li>
-                    <li>✔️ Embedded Systems Development</li>
-                    <li>✔️ UI/UX Design</li>
-                    <li>✔️ Technical Consultation & Instruction</li>
-                    <li>✔️ Python/C# Programming using different IDEs</li>
-                    <li>✔️ Technical Writing & Documentation</li>
-                    <li>✔️ Professional CV Writing</li>
-                    <li>✔️ Consultation</li>
-                </ul>
+    <main class="page-wrapper">
+        <!-- Hero section -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <h1>
+                        <span data-translate="hero-line1">Build trust.</span>
+                        <span class="highlight" data-translate="hero-line2">Ship quality software.</span>
+                        <span data-translate="hero-line3">Grow your business.</span>
+                    </h1>
+                    <p data-translate="short-descr">I help businesses and teams turn ideas into reliable software — from modern websites to custom engineering tools. Let's build something that works for you.</p>
+                    <a href="../contact/index.html" class="btn btn-primary" data-translate="contact-btn">Get a Free Consultation</a>
+                </div>
+                <div class="hero-image reveal reveal-delay-1">
+                    <img src="../images/laptop.png" alt="Software development">
+                    <div class="hero-badge">
+                        <strong data-translate="hero-badge-number">5+</strong>
+                        <span data-translate="hero-badge-text">Years of engineering experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services grid -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-translate="services-label">Services</span>
+                    <h2 class="section-title" data-translate="services-h2">What I Can Do for You</h2>
+                    <p class="section-subtitle" data-translate="services-subtitle">End-to-end software engineering — one partner for your entire project.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="icon"><i class="fas fa-globe"></i></div>
+                        <h3 data-translate="service-1-title">Web Development</h3>
+                        <p data-translate="service-1-desc">Fast, responsive websites and web apps tailored to your brand and business goals.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                    <div class="service-card reveal reveal-delay-1">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3 data-translate="service-2-title">Custom Software</h3>
+                        <p data-translate="service-2-desc">Desktop and backend applications in C#, Python and modern frameworks.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                    <div class="service-card reveal reveal-delay-2">
+                        <div class="icon"><i class="fas fa-microchip"></i></div>
+                        <h3 data-translate="service-3-title">Embedded & IoT</h3>
+                        <p data-translate="service-3-desc">Raspberry Pi, Node-RED, data pipelines and testbed automation solutions.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                    <div class="service-card reveal">
+                        <div class="icon"><i class="fas fa-palette"></i></div>
+                        <h3 data-translate="service-4-title">UI/UX Design</h3>
+                        <p data-translate="service-4-desc">User-friendly interfaces and interactive prototypes that convert visitors into clients.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                    <div class="service-card reveal reveal-delay-1">
+                        <div class="icon"><i class="fas fa-database"></i></div>
+                        <h3 data-translate="service-5-title">Data & Automation</h3>
+                        <p data-translate="service-5-desc">Database management, scripting, reporting tools and workflow automation.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                    <div class="service-card reveal reveal-delay-2">
+                        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 data-translate="service-6-title">Consulting & Training</h3>
+                        <p data-translate="service-6-desc">Technical guidance, documentation and hands-on instruction for your team.</p>
+                        <a href="../contact/index.html" class="card-link" data-translate="service-link">Request a quote →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About preview -->
+        <section class="section about-preview">
+            <div class="container about-grid">
+                <div class="about-photo reveal">
+                    <img src="../images/profile.png" alt="Viktor Bakacs">
+                </div>
+                <div class="about-text reveal reveal-delay-1">
+                    <span class="section-label" data-translate="about-label">About</span>
+                    <h2 data-translate="about-preview-title">Your Software Engineering Partner</h2>
+                    <p data-translate="about-preview-text">I'm Viktor Bakacs, a software engineer with experience in web development, custom tooling and embedded systems. I focus on clear communication, clean code and solutions that actually solve your problem.</p>
+                    <a href="../about/index.html" class="btn btn-outline" data-translate="about-btn">Learn more about me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why choose -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-translate="why-label">Why Vteq</span>
+                    <h2 class="section-title" data-translate="why-title">Why Work With Me?</h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card reveal">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <h3 data-translate="why-1-title">One Point of Contact</h3>
+                        <p data-translate="why-1-text">Design, development and delivery — no need to coordinate multiple freelancers.</p>
+                    </div>
+                    <div class="why-card reveal reveal-delay-1">
+                        <div class="icon"><i class="fas fa-bolt"></i></div>
+                        <h3 data-translate="why-2-title">Fast & Reliable</h3>
+                        <p data-translate="why-2-text">Agile delivery with clear milestones. Your project stays on track and on budget.</p>
+                    </div>
+                    <div class="why-card reveal reveal-delay-2">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 data-translate="why-3-title">Quality First</h3>
+                        <p data-translate="why-3-text">Maintainable code, thorough testing and documentation you can rely on long-term.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section class="section reviews-section" id="reviews">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-translate="reviews-label">Testimonials</span>
+                    <h2 class="section-title" data-translate="reviews-title">What Clients Say</h2>
+                    <p class="section-subtitle" data-translate="reviews-subtitle">Feedback from people I've worked with.</p>
+                </div>
+                <!-- Shown when no published reviews yet — controlled by reviews.json _config -->
+                <div class="reviews-empty" id="reviews-empty" style="display:none">
+                    <p data-translate="reviews-empty">Reviews will appear here once clients share their feedback. You can leave yours below!</p>
+                </div>
+                <div class="reviews-grid" id="reviews-container">
+                    <!-- Populated by script.js from languages/reviews.json when showPublishedReviews is true -->
+                </div>
+
+                <!-- Review submission — sends email via Formspree; add approved reviews to reviews.json -->
+                <div class="review-form-box reveal">
+                    <h3 data-translate="review-form-title">Leave a Review</h3>
+                    <form id="review-form">
+                        <div class="star-rating-input">
+                            <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                            <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                            <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                            <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                            <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+                        </div>
+                        <input type="text" id="review-name" data-translate-placeholder="review-name-placeholder" placeholder="Your name" required>
+                        <textarea id="review-comment" data-translate-placeholder="review-comment-placeholder" placeholder="Your experience working with me..." required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%" data-translate="review-submit">Submit Review</button>
+                        <p class="review-note" data-translate="review-note">On static hosting, your review is saved locally in your browser. Contact me to publish it on the site.</p>
+                        <p id="review-thanks" style="display:none;color:var(--color-success);text-align:center;margin-top:0.5rem;" data-translate="review-thanks">Thank you for your feedback!</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-section reveal">
+                    <h2 data-translate="cta-title">Ready to start your project?</h2>
+                    <p data-translate="cta-text">Tell me about your idea and let's find the best solution together.</p>
+                    <a href="../contact/index.html" class="btn btn-primary" data-translate="contact-btn">Get a Free Consultation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p data-translate="footer">&copy; 2026 Vteq — Software Engineering Services</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/BVviktor" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/viktor-bakacs" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:bakacsviktor123@email.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+            <div class="footer-nav">
+                <a href="../etc/privpolicy.html" data-translate="privacy-link">Privacy Policy</a>
             </div>
         </div>
-        <div class="right-content">
-            <img src="../images/laptop-guy.png" alt="laptop-guy" class="laptop-guy">
-        </div>
-    </div>
+    </footer>
 
-    
     <script src="../script.js"></script>
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Personal",
-          "name": "Vteq IT",
-          "url": "https://vteq-it.com",
-          "logo": "https://vteq-it.com/images/logo.png",
-          "description": "Freelance Software Engineering Services including web development, embedded systems, and consultation.",
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Vteq IT",
+        "url": "https://vteq-it.com",
+        "logo": "https://vteq-it.com/images/logo.png",
+        "description": "Professional software engineering services including web development, custom software and embedded systems.",
+        "founder": {
+            "@type": "Person",
+            "name": "Viktor Bakacs"
         }
+    }
     </script>
 </body>
-
-<footer>
-    <div class="footer-content">
-        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
-        <div class="footer-links">
-            <a href="https://github.com/BVviktor" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:bakacsviktor123@email.com">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
-    </div>
-</footer>
-
-
 </html>

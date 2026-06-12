@@ -1,285 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
-    <title>Vteq IT - Freelance Software Engineering Services</title>
-    <meta name="description" content="Professional IT services including web development, embedded systems, and consultation.">
     <meta charset="UTF-8">
-
-    <meta property="og:title" content="Vteq IT - Freelance Software Engineering">
-    <meta property="og:description" content="Get professional IT services.">
-    <meta property="og:image" content="https://vteq-it.com/images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Launch — Vteq IT Blog</title>
+    <meta name="description" content="Vteq IT website has officially launched.">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="../icon.ico"> <!-- Favicon for the page -->
-    <style>
-        .hero3 {
-            background: url('../images/news.jpg') repeat;
-            min-height: 170vh;
-            width: 100%;
-            height: 100%;
-            color: #fff; /* it was white*/
-            position: relative;
-        }
-        .news-container {
-            width: 80%;
-            margin: 6% auto 5% auto;
-            max-width: 1000px;
-            background: #141414;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .latest-news img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        .latest-news h2 {
-            margin: 15px 0;
-        }
-        .latest-news p {
-            text-align: left;
-            line-height: 1.8;
-            font-size: 22px;
-        }
-
-        .see-more {
-            background: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .see-more:hover {
-            background: #0056b3;
-        }
-
-        .see-also {
-            margin-top: 10px;
-            text-align: center;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .see-also-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding-bottom: 8%;
-        }
-
-        .see-also-item {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .see-also img {
-            width: 200px;
-            height: 150px;
-            border-radius: 5px;
-        }
-
-        .arrow1 {
-            cursor: pointer;
-            font-size: 20px;
-            background: #0056b3;
-            border: none;
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            .hero3 {
-                min-height: 200vh;
-            }
-            .news-container {
-                padding: 15px;
-                margin: 45% auto;
-            }
-            .news-container p{
-                font-size: 14px;
-            }
-            .see-also-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .see-also img {
-                width: 100px;
-                height: auto;
-            }
-            .arrow1 {
-                font-size: 24px;
-                width: 80px;
-                height: 40px;
-            }
-            .ad {
-                font-size: 12px;
-                padding: 8px;
-            }
-            
-            /* Adjust content between ads */
-            .news-container, .see-also-container {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .see-also-item p {
-                font-size: 18px;
-                margin-left: 10%;
-                margin-right: 10%;
-            }
-
-            .top-left {
-                margin-top: 45%;
-                margin-bottom: 17%;
-            }
-
-            .top-right {
-                margin-top: 45%;
-                margin-bottom: 17%;
-            }
-            .bottom-ad {
-                bottom: 17%;
-            }
-            .ytvideo {
-                width: 90%;
-                height: 90%;
-            }
-            .see-also {
-                padding-bottom: 15%;
-            }
-            .img1 {
-                width: 80%;
-                height: 40%;
-        }
-    }
-    </style>
+    <link rel="icon" href="../icon.ico">
 </head>
 <body>
-    <div class="hero3">
+    <header>
         <nav class="navbar">
-            <img src="../images/menu.png" class="menu-img" alt="menu-logo">
             <a href="../home/index.html">
-                <img src="../images/logo.png" class="logo" alt="Logo">
+                <img src="../images/logo.png" class="logo" alt="Vteq IT Logo">
             </a>
-            <ul>
-                <li><a href="../home/index.html" data-translate="home"> <img src="../images/home.png" class="home" alt="home"> Home</a></li>
-                 <!--<li><a href="../news/index.html" data-translate="news">Tech News</a></li>-->
-                 <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
-                <li><a href="../about/index.html" data-translate="about">About Me</a></li>
-                <li><a href="../contact/index.html" data-translate="contact">Contact Me</a></li>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../home/index.html" data-translate="home">Home</a></li>
+                <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
+                <li><a href="../news/index.html" data-translate="news">Blog</a></li>
+                <li><a href="../about/index.html" data-translate="about">About</a></li>
+                <li><a href="../contact/index.html" data-translate="contact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <div class="selected-language">
-                    <img src="../images/en.png" class="lang-flag" alt="english"> en 
-                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <div class="selected-language">
+                        <img src="../images/en.png" class="lang-flag" alt="english"> en
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li data-lang="en"><img src="../images/en.png" alt="english"> en</li>
+                        <li data-lang="hu"><img src="../images/hu.png" alt="hungarian"> hu</li>
+                        <li data-lang="ru"><img src="../images/ru.png" alt="russian"> ru</li>
+                        <li data-lang="de"><img src="../images/de.png" alt="german"> de</li>
+                    </ul>
                 </div>
-                <ul class="language-dropdown">
-                    <li data-lang="en"><img src="../images/en.png" class="lang-flag" alt="english"> en</li>
-                    <li data-lang="hu"><img src="../images/hu.png" class="lang-flag" alt="hungarian"> hu</li>
-                    <li data-lang="ru"><img src="../images/ru.png" class="lang-flag" alt="russian"> ru</li>
-                    <li data-lang="de"><img src="../images/de.png" class="lang-flag" alt="german"> de</li>
-                </ul>
             </div>
         </nav>
-        <hr class="styled-line">
-        
-        <div class="news-container">
-            <div class="latest-news">
-                <h2>🚀 The Website Has Officially Launched! 🎉</h2>
-                <img class="img1" src="../images/on.jpg" alt="Latest News" height="400">
-                <p>
-                    I am thrilled to announce that my website is now live! 🎊  
-                    After weeks of hard work and dedication, I am finally here!  
-                    Explore our content, stay updated, and enjoy the experience.  
-                </p>
-                <p>
-                    📅 **Launch Date:** March 26, 2025  
-                    💡 Stay tuned for updates, features, and exciting new additions!  
-                    ❤️ Thank you for your support – this is just the beginning!  
-                </p>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="container">
+            <article class="article-container reveal">
+                <p class="article-meta" data-translate="article-1-date">March 25, 2025 · Announcement</p>
+                <h1 data-translate="blog-article-1-title">The Website Has Officially Launched!</h1>
+                <img src="../images/on.jpg" alt="Website launch" loading="lazy">
+                <div data-translate="article-1-body">
+                    <p>I'm excited to announce that Vteq IT is now live! This website is my professional home on the web — a place where potential clients can explore my services, browse my portfolio, and get in touch for software engineering projects.</p>
+                    <p>Whether you need a modern website, custom desktop software, embedded systems integration, or technical consulting, this platform makes it easy to start a conversation.</p>
+                    <p>Feel free to explore the site, check out my work, and <a href="../contact/index.html">reach out</a> if you have a project in mind!</p>
+                </div>
+                <a href="../news/index.html" class="btn btn-outline btn-sm" data-translate="back-to-blog">← Back to Blog</a>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p data-translate="footer">&copy; 2026 Vteq — Software Engineering Services</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/BVviktor" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/viktor-bakacs" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:bakacsviktor123@email.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+            <div class="footer-nav">
+                <a href="../etc/privpolicy.html" data-translate="privacy-link">Privacy Policy</a>
             </div>
         </div>
-        
+    </footer>
 
-        <div class="see-also">
-            <h3 data-translate="see-also">See also:</h3>
-            <div class="see-also-container">
-                <button class="arrow1" onclick="prevNews()">&#9664;</button>
-                <div class="see-also-item" id="news1">
-                    <p>Detroit Become Human - Megjelent a magyar szinkron!</p>
-                    <img src="../images/detroit.jpg" alt="News 1">
-                    <a href="../news/index.html" class="see-more" data-translate="see-more">See More</a>
-                </div>
-                <div class="see-also-item" id="news2">
-                    <p>Older News Title 2</p>
-                    <img src="news2.jpg" alt="News 2">
-                    <a href="#" class="see-more">See More</a>
-                </div>
-                <button class="arrow1" onclick="nextNews()">&#9654;</button>
-            </div>
-        </div>
-
-        <script>
-            let currentNews = 1;
-            let totalNews = 1; /* increase this number for arrows to work*/
-
-            function showNews(index) {
-                for (let i = 1; i <= totalNews; i++) {
-                    document.getElementById(`news${i}`).style.display = 'none';
-                }
-                document.getElementById(`news${index}`).style.display = 'flex';
-            }
-
-            function prevNews() {
-                currentNews = currentNews === 1 ? totalNews : currentNews - 1;
-                showNews(currentNews);
-            }
-
-            function nextNews() {
-                currentNews = currentNews === totalNews ? 1 : currentNews + 1;
-                showNews(currentNews);
-            }
-
-            function closeAd() {
-                document.getElementById('bottomAd').style.display = 'none';
-            }
-
-            showNews(currentNews);
-        </script>
-
-    </div>
-
-    
     <script src="../script.js"></script>
 </body>
-
-<footer>
-    <div class="footer-content">
-        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
-        <div class="footer-links">
-            <a href="https://github.com/BVviktor" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:bakacsviktor123@email.com">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
-    </div>
-</footer>
-
-
 </html>

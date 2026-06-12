@@ -1,0 +1,10 @@
+{
+  "_readme": "Set showPublishedReviews to true when you have real client reviews. Add entries under en/hu/de/ru arrays. Each review: { name, rating (1-5), text, role }",
+  "_config": {
+    "showPublishedReviews": false
+  },
+  "en": [],
+  "hu": [],
+  "de": [],
+  "ru": []
+}

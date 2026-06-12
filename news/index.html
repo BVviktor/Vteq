@@ -1,282 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
-    <title>Vteq IT - Freelance Software Engineering Services</title>
-    <meta name="description" content="Professional IT services including web development, embedded systems, and consultation.">
     <meta charset="UTF-8">
-
-    <meta property="og:title" content="Vteq IT - Freelance Software Engineering">
-    <meta property="og:description" content="Get professional IT services.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Vteq IT</title>
+    <meta name="description" content="Insights on software engineering, web development and technology.">
+    <meta property="og:title" content="Vteq IT Blog">
     <meta property="og:image" content="https://vteq-it.com/images/logo.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="../icon.ico"> <!-- Favicon for the page -->
-    <style>
-        .hero3 {
-            background: url('../images/news.jpg') repeat;
-            min-height: 170vh;
-            width: 100%;
-            height: 100%;
-            color: #fff; /* it was white*/
-            position: relative;
-        }
-        .news-container {
-            width: 80%;
-            margin: 6% auto 5% auto;
-            max-width: 1000px;
-            background: #141414;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .latest-news img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        .latest-news h2 {
-            margin: 15px 0;
-        }
-        .latest-news p {
-            text-align: left;
-            line-height: 1.8;
-            font-size: 22px;
-        }
-
-        .latest-news a {
-            color: #007bff;
-        }
-
-        .see-more {
-            background: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .see-more:hover {
-            background: #0056b3;
-        }
-
-        .see-also {
-            margin-top: 10px;
-            text-align: center;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .see-also-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding-bottom: 8%;
-        }
-
-        .see-also-item {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .see-also img {
-            width: 200px;
-            height: 150px;
-            border-radius: 5px;
-        }
-
-        .arrow1 {
-            cursor: pointer;
-            font-size: 20px;
-            background: #0056b3;
-            border: none;
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            .hero3 {
-                min-height: 200vh;
-            }
-            .news-container {
-                padding: 15px;
-                margin: 45% auto;
-            }
-            .news-container p{
-                font-size: 14px;
-            }
-            .see-also-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .see-also img {
-                width: 100px;
-                height: auto;
-            }
-            .arrow1 {
-                font-size: 24px;
-                width: 80px;
-                height: 40px;
-            }
-            .ad {
-                font-size: 12px;
-                padding: 8px;
-            }
-            
-            /* Adjust content between ads */
-            .news-container, .see-also-container {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .see-also-item p {
-                font-size: 18px;
-                margin-left: 10%;
-                margin-right: 10%;
-            }
-
-            .top-left {
-                margin-top: 45%;
-                margin-bottom: 17%;
-            }
-
-            .top-right {
-                margin-top: 45%;
-                margin-bottom: 17%;
-            }
-            .bottom-ad {
-                bottom: 17%;
-            }
-            .ytvideo {
-                width: 90%;
-                height: 90%;
-            }
-            .see-also {
-                padding-bottom: 15%;
-            }
-            .img1 {
-                width: 80%;
-                height: 40%;
-        }
-    }
-    </style>
+    <link rel="icon" href="../icon.ico">
 </head>
 <body>
-    <div class="hero3">
+    <header>
         <nav class="navbar">
-            <img src="../images/menu.png" class="menu-img" alt="menu-logo">
             <a href="../home/index.html">
-                <img src="../images/logo.png" class="logo" alt="Logo">
+                <img src="../images/logo.png" class="logo" alt="Vteq IT Logo">
             </a>
-            <ul>
-                <li><a href="../home/index.html" data-translate="home"> <img src="../images/home.png" class="home" alt="home"> Home</a></li>
-                 <!--<li><a href="../news/index.html" data-translate="news">Tech News</a></li>-->
-                 <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
-                <li><a href="../about/index.html" data-translate="about">About Me</a></li>
-                <li><a href="../contact/index.html" data-translate="contact">Contact Me</a></li>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../home/index.html" data-translate="home">Home</a></li>
+                <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
+                <li><a href="../news/index.html" data-translate="news">Blog</a></li>
+                <li><a href="../about/index.html" data-translate="about">About</a></li>
+                <li><a href="../contact/index.html" data-translate="contact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <div class="selected-language">
-                    <img src="../images/en.png" class="lang-flag" alt="english"> en 
-                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <div class="selected-language">
+                        <img src="../images/en.png" class="lang-flag" alt="english"> en
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li data-lang="en"><img src="../images/en.png" alt="english"> en</li>
+                        <li data-lang="hu"><img src="../images/hu.png" alt="hungarian"> hu</li>
+                        <li data-lang="ru"><img src="../images/ru.png" alt="russian"> ru</li>
+                        <li data-lang="de"><img src="../images/de.png" alt="german"> de</li>
+                    </ul>
                 </div>
-                <ul class="language-dropdown">
-                    <li data-lang="en"><img src="../images/en.png" class="lang-flag" alt="english"> en</li>
-                    <li data-lang="hu"><img src="../images/hu.png" class="lang-flag" alt="hungarian"> hu</li>
-                    <li data-lang="ru"><img src="../images/ru.png" class="lang-flag" alt="russian"> ru</li>
-                    <li data-lang="de"><img src="../images/de.png" class="lang-flag" alt="german"> de</li>
-                </ul>
             </div>
         </nav>
-        <hr class="styled-line">
-        
-        <div class="news-container">
-            <div class="latest-news">
-                <h2>Detroit Become Human - Megjelent a magyar szinkron!</h2>
-                <img class="img1" src="../images/detroit.jpg" alt="Latest News" height="400">
-                <p>Talán senki sem vitatja, hogy egy történet-orientált, számos karaktert mozgató videójátékban kiemelt fontossággal bír a színészi teljesítmény, pláne abban az esetben, ha az adott sztori rengeteg párbeszéddel és filmes jelenettel van tálalva. Tekintve, hogy az eredetileg 2018-ban megjelent <b>Detroit: Become Humant</b> (meg a <b>Quantic Dream</b> címeket úgy általában) elég sokszor illetik az „interaktív film” jelzővel, hírünk alanyában még az átlagnál is többet nyomnak a latba az egzisztenciális kérdéseket boncolgató karakterek mögött álló művészek, akiket hamarosan leváltanak a <b>magyar szinkron</b> neves alakjai, hála a sokszor bizonyított (elég csak a God of Warra gondolni) <b>SzinkronSarok</b> fáradhatatlan munkájának és kitartásának.
-                    A minden elismerés megérdemlő csapat az alant megtekinthető videó keretében fedte fel a közönség előtt, hogy 2025. március 3-án, tehát kevesebb mint egy hónap múlva válik elérhetővé a Detroit: Become Human teljesen ingyenes magyar szinkronja, amit rögtön kétféle változatban érhetnek el a rajongók – az egyik „csak” az alapjátékot tartalmazza, a másik pedig több kivágott jelenetet, párbeszédet és interakciót is visszahelyez a játékba.
-                    Link a szinkronhoz: <a href="https://szinkronsarok.hu/propage.php?projekt=detroit_become_human" target="_blank">SzinkronSarok</a>
-                </p>
+    </header>
+
+    <main class="page-wrapper news-page">
+        <section class="page-hero">
+            <div class="container reveal">
+                <h1 data-translate="blog-title">Blog & Insights</h1>
+                <p data-translate="blog-subtitle">Thoughts on software engineering, web development and building digital products.</p>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container news-grid">
+                <!-- Article 1: Website launch -->
+                <article class="news-card reveal">
+                    <div class="news-card-image">
+                        <img src="../images/on.jpg" alt="Website launch" loading="lazy">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag" data-translate="blog-tag-announcement">Announcement</span>
+                        <h3 data-translate="blog-article-1-title">The Website Has Officially Launched!</h3>
+                        <p data-translate="blog-article-1-excerpt">Vteq IT is now live — a new home for my software engineering services, portfolio and client contact.</p>
+                        <a href="20250325.html" class="read-more" data-translate="see-more">Read more →</a>
+                    </div>
+                </article>
+
+                <!-- Article 2: Why custom software -->
+                <article class="news-card reveal reveal-delay-1">
+                    <div class="news-card-image">
+                        <img src="../images/laptop.png" alt="Custom software" loading="lazy">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag" data-translate="blog-tag-insights">Insights</span>
+                        <h3 data-translate="blog-article-2-title">Why Custom Software Beats Off-the-Shelf Tools</h3>
+                        <p data-translate="blog-article-2-excerpt">When your workflow is unique, a tailored solution saves time, reduces errors and scales with your business.</p>
+                        <a href="../contact/index.html" class="read-more" data-translate="blog-cta-link">Discuss your project →</a>
+                    </div>
+                </article>
+
+                <!-- Article 3: Web performance -->
+                <article class="news-card reveal reveal-delay-2">
+                    <div class="news-card-image">
+                        <img src="../images/laptop-guy.png" alt="Web performance" loading="lazy">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag" data-translate="blog-tag-web">Web Dev</span>
+                        <h3 data-translate="blog-article-3-title">Fast Websites Win Clients</h3>
+                        <p data-translate="blog-article-3-excerpt">Page speed, mobile responsiveness and clean design aren't optional — they're how visitors decide to trust you.</p>
+                        <a href="../portfolio/index.html" class="read-more" data-translate="blog-portfolio-link">See my work →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p data-translate="footer">&copy; 2026 Vteq — Software Engineering Services</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/BVviktor" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/viktor-bakacs" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:bakacsviktor123@email.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+            <div class="footer-nav">
+                <a href="../etc/privpolicy.html" data-translate="privacy-link">Privacy Policy</a>
             </div>
         </div>
+    </footer>
 
-        <div class="see-also">
-            <h3 data-translate="see-also">See also:</h3>
-            <div class="see-also-container">
-                <button class="arrow1" onclick="prevNews()">&#9664;</button>
-                <div class="see-also-item" id="news1">
-                    <p>🚀 The Website Has Officially Launched! 🎉</p>
-                    <img src="../images/on.jpg" alt="News 1">
-                    <a href="../news/20250325.html" class="see-more" data-translate="see-more">See More</a>
-                </div>
-                <div class="see-also-item" id="news2">
-                    <p>Older News Title 2</p>
-                    <img src="news2.jpg" alt="News 2">
-                    <a href="#" class="see-more">See More</a>
-                </div>
-                <button class="arrow1" onclick="nextNews()">&#9654;</button>
-            </div>
-        </div>
-
-        <script>
-            let currentNews = 1;
-            let totalNews = 1; /* increase this number for arrows to work*/
-
-            function showNews(index) {
-                for (let i = 1; i <= totalNews; i++) {
-                    document.getElementById(`news${i}`).style.display = 'none';
-                }
-                document.getElementById(`news${index}`).style.display = 'flex';
-            }
-
-            function prevNews() {
-                currentNews = currentNews === 1 ? totalNews : currentNews - 1;
-                showNews(currentNews);
-            }
-
-            function nextNews() {
-                currentNews = currentNews === totalNews ? 1 : currentNews + 1;
-                showNews(currentNews);
-            }
-
-            function closeAd() {
-                document.getElementById('bottomAd').style.display = 'none';
-            }
-
-            showNews(currentNews);
-        </script>
-
-    </div>
-
-    
     <script src="../script.js"></script>
 </body>
-
-<footer>
-    <div class="footer-content">
-        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
-        <div class="footer-links">
-            <a href="https://github.com/BVviktor" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:bakacsviktor123@email.com">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
-    </div>
-</footer>
-
-
 </html>

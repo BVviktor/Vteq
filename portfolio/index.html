@@ -1,239 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
-    <title>Vteq IT - Freelance Software Engineering Services</title>
-    <meta name="description" content="Professional IT services including web development, embedded systems, and consultation.">
     <meta charset="UTF-8">
-
-    <meta property="og:title" content="Vteq IT - Freelance Software Engineering">
-    <meta property="og:description" content="Get professional IT services.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Vteq IT</title>
+    <meta name="description" content="Selected software engineering projects: web apps, custom tools, UI/UX prototypes and embedded systems.">
+    <meta property="og:title" content="Vteq IT Portfolio">
     <meta property="og:image" content="https://vteq-it.com/images/logo.png">
-
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" href="../icon.ico"> <!-- Favicon for the page -->
-    <style>
-
-    </style>
+    <link rel="icon" href="../icon.ico">
 </head>
 <body>
-    <div class="hero2">
+    <header>
         <nav class="navbar">
-            <img src="../images/menu.png" class="menu-img" alt="menu-logo">
             <a href="../home/index.html">
-                <img src="../images/logo.png" class="logo" alt="Logo">
+                <img src="../images/logo.png" class="logo" alt="Vteq IT Logo">
             </a>
-            <ul>
-                <li><a href="../home/index.html" data-translate="home"> <img src="../images/home.png" class="home" alt="home"> Home</a></li>
-                 <!--<li><a href="../works/index.html" data-translate="works">Tech works</a></li>-->
-                 <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
-                <li><a href="../about/index.html" data-translate="about">About Me</a></li>
-                <li><a href="../contact/index.html" data-translate="contact">Contact Me</a></li>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../home/index.html" data-translate="home">Home</a></li>
+                <li><a href="../portfolio/index.html" data-translate="portfolio">Portfolio</a></li>
+                <li><a href="../news/index.html" data-translate="news">Blog</a></li>
+                <li><a href="../about/index.html" data-translate="about">About</a></li>
+                <li><a href="../contact/index.html" data-translate="contact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <div class="selected-language">
-                    <img src="../images/en.png" class="lang-flag" alt="english"> en 
-                    <i class="fas fa-caret-down"></i> <!-- Down arrow -->
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <div class="selected-language">
+                        <img src="../images/en.png" class="lang-flag" alt="english"> en
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <ul class="language-dropdown">
+                        <li data-lang="en"><img src="../images/en.png" alt="english"> en</li>
+                        <li data-lang="hu"><img src="../images/hu.png" alt="hungarian"> hu</li>
+                        <li data-lang="ru"><img src="../images/ru.png" alt="russian"> ru</li>
+                        <li data-lang="de"><img src="../images/de.png" alt="german"> de</li>
+                    </ul>
                 </div>
-                <ul class="language-dropdown">
-                    <li data-lang="en"><img src="../images/en.png" class="lang-flag" alt="english"> en</li>
-                    <li data-lang="hu"><img src="../images/hu.png" class="lang-flag" alt="hungarian"> hu</li>
-                    <li data-lang="ru"><img src="../images/ru.png" class="lang-flag" alt="russian"> ru</li>
-                    <li data-lang="de"><img src="../images/de.png" class="lang-flag" alt="german"> de</li>
-                </ul>
             </div>
         </nav>
-        <hr class="styled-line">
+    </header>
 
-    <button class="arrow left-arrow" onclick="prevWork()">&#9664;</button>
-    <!-- MAIN CONTENT -->   
-        <!-- PAGE 1 -->  
-        <div class="portfolio-box" id="works1">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h1">Bolt force and tightening torque calculator tool</h2>
-                <img src="../images/munka1.png" alt="Project 1 Image">
-                <p data-translate="portf_pg1_p1">
-                    <strong>Tools used:</strong> C# (WindowsForms), XML (input/output)<br>
-                    <strong>OS:</strong> Windows, PC<br>
-                    <strong>Description:</strong>This is a simple tool that calculates the bolt force and tightening torque based on the input parameters. It also generates an XML file with the results.<br>
-                </p>
+    <main class="page-wrapper">
+        <section class="page-hero">
+            <div class="container reveal">
+                <h1 data-translate="portfolio-page-title">My Work</h1>
+                <p data-translate="portfolio-subtitle">A selection of projects across web, software engineering, UI/UX and embedded systems.</p>
             </div>
-        </div>
-         <!-- PAGE 2 --> 
-         <div class="portfolio-box" id="works2">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h6">Browser-based Dragon Game</h2>
-                <iframe
-                    src="https://vteq-it.com/dragon/asdasd"
-                    width="100%"
-                    height="700"
-                    frameborder="0">
-                </iframe>
-                <p data-translate="portf_pg1_p6">
-                    <strong>Tools used:</strong> HTML, CSS, Javascript<br>
-                    <strong>OS:</strong> Web<br>
-                    <strong>Description:</strong>A simple 2D browser-based game where you need to avoid the obstacles as a dragon.<br>
-                </p>
-            </div>
-        </div>
-          <!-- PAGE 3 --> 
-          <div class="portfolio-box" id="works3">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h5">Figma UI/UX Prototype</h2>
-                <div class="figma-container">
-                    <iframe
-                        src="https://embed.figma.com/proto/FAWNv3myYxdFUCc6BDj9f2/Viktor-Bakacs-s-team-library?node-id=2342-1084&scaling=scale-down&content-scaling=fixed&page-id=2342%3A1083&starting-point-node-id=2342%3A1084&show-proto-sidebar=1&embed-host=share"
-                        allowfullscreen>
-                    </iframe>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <!-- Category filters -->
+                <div class="portfolio-filters reveal">
+                    <button class="filter-btn active" data-filter="all" data-translate="filter-all">All</button>
+                    <button class="filter-btn" data-filter="web" data-translate="filter-web">Web</button>
+                    <button class="filter-btn" data-filter="software" data-translate="filter-software">Software</button>
+                    <button class="filter-btn" data-filter="ui" data-translate="filter-ui">UI/UX</button>
+                    <button class="filter-btn" data-filter="embedded" data-translate="filter-embedded">Embedded</button>
                 </div>
-                <p data-translate="portf_pg1_p5">
-                    <strong>Tools used:</strong> Figma<br>
-                    <strong>OS:</strong> Windows, PC<br>
-                    <strong>Description:</strong>An UI/UX design for parental control app. Interactive prototype demonstrating application workflows, screen designs and user experience concepts.<br>
-                </p>
+
+                <div class="portfolio-grid">
+                    <!-- Web: Dragon game -->
+                    <article class="portfolio-card reveal" data-category="web" data-project="dragon">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka5.png" alt="Dragon Game">
+                            <span class="card-tag" data-translate="filter-web">Web</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h6">Browser-based Dragon Game</h3>
+                            <p data-translate="portf-card-dragon">HTML/CSS/JS — interactive 2D browser game</p>
+                        </div>
+                    </article>
+
+                    <!-- UI/UX: Figma -->
+                    <article class="portfolio-card reveal reveal-delay-1" data-category="ui" data-project="figma">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka6.png" alt="Figma Prototype">
+                            <span class="card-tag" data-translate="filter-ui">UI/UX</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h5">Figma UI/UX Prototype</h3>
+                            <p data-translate="portf-card-figma">Parental control app — interactive prototype</p>
+                        </div>
+                    </article>
+
+                    <!-- Software: Bolt calculator -->
+                    <article class="portfolio-card reveal reveal-delay-2" data-category="software" data-project="bolt">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka1.png" alt="Bolt Calculator">
+                            <span class="card-tag" data-translate="filter-software">Software</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h1">Bolt Force Calculator</h3>
+                            <p data-translate="portf-card-bolt">C# WinForms engineering calculation tool</p>
+                        </div>
+                    </article>
+
+                    <!-- Software: Cranktrain -->
+                    <article class="portfolio-card reveal" data-category="software" data-project="cranktrain">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka2.png" alt="Cranktrain Calculator">
+                            <span class="card-tag" data-translate="filter-software">Software</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h2">Cranktrain Calculator</h3>
+                            <p data-translate="portf-card-cranktrain">Force/torque calculator with optimization</p>
+                        </div>
+                    </article>
+
+                    <!-- Software: DTC -->
+                    <article class="portfolio-card reveal reveal-delay-1" data-category="software" data-project="dtc">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka4.png" alt="DTC Generator">
+                            <span class="card-tag" data-translate="filter-software">Software</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h4">DTC Mask Generator</h3>
+                            <p data-translate="portf-card-dtc">Python diagnostic status mask tool</p>
+                        </div>
+                    </article>
+
+                    <!-- Embedded: Testbed -->
+                    <article class="portfolio-card reveal reveal-delay-2" data-category="embedded" data-project="testbed">
+                        <div class="portfolio-card-image">
+                            <img src="../images/munka3.png" alt="Testbed Manager">
+                            <span class="card-tag" data-translate="filter-embedded">Embedded</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <h3 data-translate="portf_pg1_h3">Testbed Manager</h3>
+                            <p data-translate="portf-card-testbed">Node-RED + Grafana testbed UI on Raspberry Pi</p>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </div>
-        <!-- PAGE 4 --> 
-        <div class="portfolio-box" id="works4">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h4">Diagnostic status mask generator for trouble codes (DTC)</h2>
-                <img src="../images/munka4.png" alt="Project 4 Image">
-                <p data-translate="portf_pg1_p4">
-                    <strong>Tools used:</strong> Python<br>
-                    <strong>OS:</strong> Windows, PC<br>
-                    <strong>Description:</strong>This is a simple tool that generates a diagnostic status mask for trouble codes (DTC). The tool is capable of generating the mask based on the input parameters.<br>
-                </p>
+        </section>
+
+        <section class="section" style="padding-top:0">
+            <div class="container">
+                <div class="cta-section reveal">
+                    <h2 data-translate="cta-title">Ready to start your project?</h2>
+                    <p data-translate="cta-text">Tell me about your idea and let's find the best solution together.</p>
+                    <a href="../contact/index.html" class="btn btn-primary" data-translate="contact-btn">Get a Free Consultation</a>
+                </div>
             </div>
-        </div>
-        <!-- PAGE 5 --> 
-        <div class="portfolio-box" id="works5">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h2">Cranktrain force/torque calculator app with balancer optimization tool</h2>
-                <img src="../images/munka2.png" alt="Project 2 Image">
-                <p data-translate="portf_pg1_p2">
-                    <strong>Tools used:</strong> C# (WindowsForms), XML (input/output), Matlab, Excel, Photoshop<br>
-                    <strong>OS:</strong> Windows, PC<br>
-                    <strong>Description:</strong>This is a simple tool that calculates the cranktrain force/torque based on the input parameters. It also generates an XML file with the results. It is capable for balancer shaft optimizations to minimalise the torques and to reset the crankshaft forces to zero.<br>
-                </p>
-            </div>
-        </div>
-        <!-- PAGE 6 --> 
-        <div class="portfolio-box" id="works6">
-            <div class="left-text">
-                <h2 data-translate="portf_pg1_h3">Testbed manager tool for clutch coupling test</h2>
-                <img src="../images/munka3.png" alt="Project 3 Image">
-                <p data-translate="portf_pg1_p3">
-                    <strong>Tools used:</strong> NodeRed, Python, Grafana, InfluxDB, Excel<br>
-                    <strong>OS:</strong> Linux, Raspberry PI<br>
-                    <strong>Description:</strong>This is a simple user interface (UI) for a testbed. The testbed is capable of testing the clutch couplings in different conditions (temperature, pressure, etc.). It is capable of controlling the testbed, collecting data, and generating reports. It also generates an XML file with the results which are afterward transfered from Raspberry to PC wireless.<br>
-                </p>
-            </div>
-        </div>
-        
-           
-            
-    <!-- MAIN CONTENT --> 
-    <button class="arrow right-arrow" onclick="nextWork()">&#9654;</button>
+        </section>
+    </main>
 
-    <script>
-        const portfolioBoxes = document.querySelectorAll(".portfolio-box");
-        const leftArrow = document.querySelector(".left-arrow");
-        const rightArrow = document.querySelector(".right-arrow");
-        let currentWork = 0;
-
-        function showWork(index, direction = 'right') {
-            if (index < 0 || index >= portfolioBoxes.length) return;
-
-            // Hide all
-            portfolioBoxes.forEach(box => {
-                box.style.display = "none";
-                box.classList.remove("slide-left", "slide-right");
-            });
-
-            // Add animation
-            const currentBox = portfolioBoxes[index];
-            currentBox.style.display = "flex";
-            requestAnimationFrame(() => {
-                currentBox.classList.add(direction === 'right' ? 'slide-right' : 'slide-left');
-            });
-
-            currentWork = index;
-            updateURLWithPage(index + 1);
-        }
-
-        function updateURLWithPage(pageNumber) {
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.set("page", pageNumber);
-            window.history.pushState({}, '', newUrl);
-        }
-
-        // Arrow buttons
-        leftArrow.addEventListener("click", () => {
-            const newIndex = currentWork - 1;
-            if (newIndex >= 0) showWork(newIndex, 'left');
-        });
-
-        rightArrow.addEventListener("click", () => {
-            const newIndex = currentWork + 1;
-            if (newIndex < portfolioBoxes.length) showWork(newIndex, 'right');
-        });
-
-        // Touch support for swipe
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.addEventListener("touchstart", e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-
-        document.addEventListener("touchend", e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleGesture();
-        }, false);
-
-        function handleGesture() {
-            const swipeDistance = touchEndX - touchStartX;
-            if (swipeDistance > 50) {
-                // Swipe right → show previous
-                if (currentWork > 0) showWork(currentWork - 1, 'left');
-            } else if (swipeDistance < -50) {
-                // Swipe left → show next
-                if (currentWork < portfolioBoxes.length - 1) showWork(currentWork + 1, 'right');
-            }
-        }
-
-        // On load → check ?page=n
-        window.addEventListener("DOMContentLoaded", () => {
-            const params = new URLSearchParams(window.location.search);
-            const page = parseInt(params.get("page"));
-            if (!isNaN(page) && page > 0 && page <= portfolioBoxes.length) {
-                showWork(page - 1, 'right');
-            } else {
-                showWork(0); // Default to first
-            }
-        });
-
-    </script>
-    <script src="../script.js"></script>
-</body>
-
-<footer>
-    <div class="footer-content">
-        <p data-translate="footer">&copy; 2025 Vteq - Software Engineering Services</p>
-        <div class="footer-links">
-            <a href="https://github.com/BVviktor" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://linkedin.com/in/viktor-bakacs" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:bakacsviktor123@email.com">
-                <i class="fas fa-envelope"></i> Email
-            </a>
+    <!-- Project detail modal — content loaded from hidden templates below -->
+    <div class="modal-overlay" id="portfolio-modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </div>
-</footer>
 
+    <!-- Hidden project templates for modal -->
+    <div style="display:none">
+        <div id="project-dragon">
+            <h2 data-translate="portf_pg1_h6">Browser-based Dragon Game</h2>
+            <iframe src="https://vteq-it.com/dragon/asdasd" width="100%" height="500" loading="lazy"></iframe>
+            <div class="project-meta" data-translate="portf_pg1_p6"></div>
+        </div>
+        <div id="project-figma">
+            <h2 data-translate="portf_pg1_h5">Figma UI/UX Prototype</h2>
+            <div class="figma-container">
+                <iframe src="https://embed.figma.com/proto/FAWNv3myYxdFUCc6BDj9f2/Viktor-Bakacs-s-team-library?node-id=2342-1084&scaling=scale-down&content-scaling=fixed&page-id=2342%3A1083&starting-point-node-id=2342%3A1084&show-proto-sidebar=1&embed-host=share" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="project-meta" data-translate="portf_pg1_p5"></div>
+        </div>
+        <div id="project-bolt">
+            <h2 data-translate="portf_pg1_h1">Bolt Force Calculator</h2>
+            <img src="../images/munka1.png" alt="Bolt Calculator">
+            <div class="project-meta" data-translate="portf_pg1_p1"></div>
+        </div>
+        <div id="project-cranktrain">
+            <h2 data-translate="portf_pg1_h2">Cranktrain Calculator</h2>
+            <img src="../images/munka2.png" alt="Cranktrain">
+            <div class="project-meta" data-translate="portf_pg1_p2"></div>
+        </div>
+        <div id="project-dtc">
+            <h2 data-translate="portf_pg1_h4">DTC Mask Generator</h2>
+            <img src="../images/munka4.png" alt="DTC Generator">
+            <div class="project-meta" data-translate="portf_pg1_p4"></div>
+        </div>
+        <div id="project-testbed">
+            <h2 data-translate="portf_pg1_h3">Testbed Manager</h2>
+            <img src="../images/munka3.png" alt="Testbed Manager">
+            <div class="project-meta" data-translate="portf_pg1_p3"></div>
+        </div>
+    </div>
 
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p data-translate="footer">&copy; 2026 Vteq — Software Engineering Services</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/BVviktor" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/viktor-bakacs" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:bakacsviktor123@email.com"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+            <div class="footer-nav">
+                <a href="../etc/privpolicy.html" data-translate="privacy-link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
 </html>
