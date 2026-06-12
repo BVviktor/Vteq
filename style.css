@@ -61,7 +61,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
-    max-width: 100vw;
 }
 
 img {
@@ -90,6 +89,7 @@ ul {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-md);
+    min-width: 0;
 }
 
 .section {
@@ -391,6 +391,9 @@ form button span {
 
 .page-wrapper {
     padding-top: var(--nav-height);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .hero-section {
@@ -1177,6 +1180,9 @@ form button span {
     min-height: calc(100vh - var(--nav-height));
     background: linear-gradient(180deg, var(--color-bg-elevated) 0%, var(--color-bg) 100%);
     padding-bottom: var(--space-2xl);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .contact-grid {
@@ -1276,7 +1282,10 @@ label {
     font-weight: 500;
 }
 
-input, select, textarea {
+/* Text inputs only — never apply width:100% to checkboxes (causes mobile overflow) */
+input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+select,
+textarea {
     width: 100%;
     max-width: 100%;
     padding: 0.75rem;
@@ -1295,6 +1304,7 @@ select {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    -webkit-appearance: menulist;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -1313,21 +1323,39 @@ textarea {
     color: var(--color-text-muted);
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+    gap: 0.6rem;
+    flex-wrap: nowrap;
     min-width: 0;
+    width: 100%;
+    max-width: 100%;
     overflow-wrap: anywhere;
     word-break: break-word;
+    cursor: pointer;
+}
+
+.consentLabel span {
+    flex: 1;
+    min-width: 0;
 }
 
 .consentLabel a {
     color: var(--color-accent);
 }
 
+/* Checkbox must stay small — width:100% on inputs was stretching this on iPhone */
+.consentLabel input[type="checkbox"],
+input.consent[type="checkbox"],
 input[type=checkbox] {
-    transform: scale(1.2);
-    margin-top: 0.2rem;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    max-width: 18px;
+    padding: 0;
+    margin: 0.15rem 0 0 0;
     flex-shrink: 0;
+    accent-color: var(--color-primary);
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
 }
 
 .button-container {
@@ -1668,10 +1696,15 @@ input[type=checkbox] {
     }
 
     /* 16px prevents iOS Safari auto-zoom on input focus */
-    .contact-form-box input,
+    .contact-form-box input:not([type="checkbox"]):not([type="radio"]),
     .contact-form-box select,
     .contact-form-box textarea {
         font-size: 16px;
+    }
+
+    .consentLabel {
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 
     .navbar .logo {

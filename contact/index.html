@@ -101,7 +101,10 @@
                     <label for="message" data-translate="message">Message:</label>
                     <textarea id="message" name="message" rows="6" maxlength="5000" required data-translate-placeholder="placeholder" placeholder="Describe your project..."></textarea>
 
-                    <label class="consentLabel" for="consent" data-translate="privacy"></label>
+                    <label class="consentLabel">
+                        <input class="consent" type="checkbox" id="consent" name="consent" required>
+                        <span data-translate="privacy-text">I agree to the <a href="../etc/privpolicy.html" target="_blank">privacy policy</a></span>
+                    </label>
 
                     <div class="button-container">
                         <button type="reset" data-translate="reset">Reset</button>

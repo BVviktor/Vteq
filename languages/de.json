@@ -105,7 +105,7 @@
 	"categories": "<option value=\"web-development\">Website-Entwicklung und Design</option><option value=\"app-development\">Anwendungsentwicklung</option><option value=\"embedded-systems\">Entwicklung eingebetteter Systeme</option><option value=\"database-management\">Datenbankverwaltung</option><option value=\"automation-scripting\">Automatisierung (Python, Node-RED)</option><option value=\"software-development\">Individuelle Softwareentwicklung (C#, WPF)</option><option value=\"technical-writing\">Technische Dokumentation</option><option value=\"cv-writing\">Lebenslauf-Erstellung</option><option value=\"instruction\">Schulungsarbeit</option><option value=\"consultation\">Beratung</option>",
 	"subject": "Betreff:",
 	"message": "Nachricht:",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\" required> Ich stimme der <a href=\"../etc/privpolicy.html\" target=\"_blank\">Datenschutzerklärung</a> zu",
+	"privacy-text": "Ich stimme der <a href=\"../etc/privpolicy.html\" target=\"_blank\">Datenschutzerklärung</a> zu",
 	"reset": "Zurücksetzen",
 	"submit": "Anfrage senden",
 	"placeholder": "Bitte beschreiben Sie Ihr Projekt ausführlich (bis zu 5000 Zeichen).",

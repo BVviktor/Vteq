@@ -105,7 +105,7 @@
 	"categories": "<option value=\"web-development\">Weboldal tervezés és fejlesztés</option><option value=\"app-development\">Alkalmazás tervezés és fejlesztés</option><option value=\"embedded-systems\">Beágyazott rendszerek fejlesztése</option><option value=\"database-management\">Adatbázis kezelés és adatfeldolgozás</option><option value=\"automation-scripting\">Automatizáció és script írás (Python, Node-RED)</option><option value=\"software-development\">Egyéni szoftver fejlesztés (C#, WPF, XML)</option><option value=\"technical-writing\">Műszaki dokumentáció készítése</option><option value=\"cv-writing\">Professzionális önéletrajz készítés</option><option value=\"instruction\">Oktatói tevékenység</option><option value=\"consultation\">Konzultáció</option>",
 	"subject": "Tárgy:",
 	"message": "Üzenet:",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\" required> Elfogadom az <a href=\"../etc/privpolicy.html\" target=\"_blank\">adatkezelési tájékoztatót</a>",
+	"privacy-text": "Elfogadom az <a href=\"../etc/privpolicy.html\" target=\"_blank\">adatkezelési tájékoztatót</a>",
 	"reset": "Mégse",
 	"submit": "Küldés",
 	"placeholder": "Kérjük, részletesen írja le projektjét vagy kérését (legfeljebb 5000 karakter).",

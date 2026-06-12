@@ -105,7 +105,7 @@
 	"categories": "<option value=\"web-development\">Разработка сайтов</option><option value=\"app-development\">Разработка приложений</option><option value=\"embedded-systems\">Встраиваемые системы</option><option value=\"database-management\">Управление БД</option><option value=\"automation-scripting\">Автоматизация (Python, Node-RED)</option><option value=\"software-development\">Индивидуальное ПО (C#, WPF)</option><option value=\"technical-writing\">Техническая документация</option><option value=\"cv-writing\">Составление резюме</option><option value=\"instruction\">Преподавание</option><option value=\"consultation\">Консультации</option>",
 	"subject": "Тема:",
 	"message": "Сообщение:",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\" required> Я согласен с <a href=\"../etc/privpolicy.html\" target=\"_blank\">политикой конфиденциальности</a>",
+	"privacy-text": "Я согласен с <a href=\"../etc/privpolicy.html\" target=\"_blank\">политикой конфиденциальности</a>",
 	"reset": "Сброс",
 	"submit": "Отправить запрос",
 	"placeholder": "Опишите ваш проект подробно (до 5000 символов).",

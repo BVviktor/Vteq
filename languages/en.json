@@ -105,7 +105,7 @@
 	"categories": "<option value=\"web-development\">Website Development and Design</option><option value=\"app-development\">Application Development and Design</option><option value=\"embedded-systems\">Embedded Systems Development</option><option value=\"database-management\">Database Management & Data Processing</option><option value=\"automation-scripting\">Automation & Scripting (Python, Node-RED)</option><option value=\"software-development\">Custom Software Development (C#, WPF, XML)</option><option value=\"technical-writing\">Technical Writing & Documentation</option><option value=\"cv-writing\">Professional CV Writing</option><option value=\"instruction\">Instructor Work (Engineering/Math/Physics/Informatics)</option><option value=\"consultation\">Consultation</option>",
 	"subject": "Subject:",
 	"message": "Message:",
-	"privacy": "<input class=\"consent\" type=\"checkbox\" id=\"consent\" required> I agree to the <a href=\"../etc/privpolicy.html\" target=\"_blank\">privacy policy</a>",
+	"privacy-text": "I agree to the <a href=\"../etc/privpolicy.html\" target=\"_blank\">privacy policy</a>",
 	"reset": "Reset",
 	"submit": "Send Request",
 	"placeholder": "Please describe your project or inquiry in detail (up to 5000 characters).",
